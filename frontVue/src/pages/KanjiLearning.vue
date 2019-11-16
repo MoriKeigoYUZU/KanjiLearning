@@ -24,6 +24,13 @@
                 </v-col>
                 <v-col cols="3"></v-col>
         </v-row>
+        <v-row>
+            <v-col cols="1"></v-col>
+            <v-btn outline large color="purple" dark to="Top">
+                トップページに戻る
+            </v-btn>
+            <v-col cols="1"></v-col>
+        </v-row>
 
 
     </v-container>

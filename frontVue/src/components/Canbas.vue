@@ -1,27 +1,40 @@
 <template>
     <v-container class="grey lighten-5">
-        {{msg}}
+        <!--        {{msg}}-->
         <v-row>
             <v-col>
-        <canvas width="320" height="320" class="canvas" id="canvas"></canvas>
+                <canvas width="320" height="320" class="canvas" id="canvas"></canvas>
             </v-col>
             <v-col>
-                <v-col>
-                <v-btn depressed small color="primary" @click="save(); dddd()" large>保存</v-btn>
-                </v-col>
-                <v-col>
-                <v-btn depressed small color="error"  @click="clearCanvas" large>リセット</v-btn>
-                </v-col>
+                <v-row>
+                    <v-btn depressed small color="primary" @click="save(); dddd()" large value="Click">保存</v-btn>
+                </v-row>
+                <v-row>
+                    <v-btn depressed small color="error" large href="/KanjiLearning">リセット</v-btn>
+                </v-row>
             </v-col>
-            <v-col cols="3"></v-col>
 
-<!--        <button @click="save">save</button>-->
+            <v-row>
+                <v-col cols="2"></v-col>
+                <v-col>
+<!--                    <div class="moji">-->
+                    <div id="text1"></div>
+                    <br>
+                        <div id="text2" class="moji"></div>
+                    <br>
+                    <div id="text3"></div>
+<!--                    </div>-->
+                </v-col>
+
+            </v-row>
+            <!--            <v-col cols="3"></v-col>-->
         </v-row>
     </v-container>
 </template>
 
 <script>
     import axios from 'axios';
+
     export default {
         name: "MyCanbas",
 
@@ -32,33 +45,42 @@
             };
         },
 
-        mounted(){
+        mounted() {
             console.log(this.$el)
             this.MyCanvas()
         },
 
         methods: {
 
-            dddd: function (){
-
-
-                const GET_URL = "http://localhost:8888/dataBase/get.php";
-                //ここにURL指定。
-
-                axios.post(GET_URL)
-                    .then(response => {
-                        this.msg = response.data;
-                    }).catch(err => {
-                    console.log('err:', err);
-                    this.msg = err;
-                });
-            },
+            // dddd: function (){
+            //
+            //
+            //     const GET_URL = "http://localhost:8888/dataBase/get.php";
+            //     //ここにURL指定。
+            //
+            //     axios.post(GET_URL)
+            //         .then(response => {
+            //             this.msg = response.data;
+            //         }).catch(err => {
+            //         console.log('err:', err);
+            //         this.msg = err;
+            //     });
+            // },
 
             clearCanvas: function () {
                 //後で書く
             },
 
             save: function () {
+
+                var text1 = document.getElementById("text1");
+                text1.innerHTML = "<p><h1>あなたが書いた字は</h1></p><center></center>";
+
+                var text2 = document.getElementById("text2");
+                text2.innerHTML = "<center><h1>木</h1></center>";
+
+                var text3 = document.getElementById("text3");
+                text3.innerHTML = "<h1 align='right'>です。</h1>";
 
                 const nowContext = document.getElementById("canvas");
                 // console.log(nowContext)
@@ -95,7 +117,7 @@
                 // 送るjson
                 const params = {
                     // formatedには文字の０１データが二次元配列ではいってる
-                    mojidata : formated
+                    mojidata: formated
                 };
                 axios.post(POST_URL, params)
                     .then(response => {
@@ -103,7 +125,6 @@
                     }).catch(err => {
                     console.log('err:', err);
                 });
-
 
 
             },
@@ -224,14 +245,14 @@
 
                         let data = imageData.data;
                         let tmp = [];
-                        for (var i = 0; i < data.length; i+=4) {
-                            let p = (data[i] == 0 && data[i+1] == 0 && data[i+2] == 0) ? 0 : 1;
+                        for (var i = 0; i < data.length; i += 4) {
+                            let p = (data[i] == 0 && data[i + 1] == 0 && data[i + 2] == 0) ? 0 : 1;
                             tmp.push(p);
                         }
                         let array = [];
                         let formated = []
                         for (var i = 0; i < tmp.length; i++) {
-                            if (i != 0 && i%canvas.width == 0) {
+                            if (i != 0 && i % canvas.width == 0) {
                                 formated.push(array);
                                 array = [];
                             }
@@ -239,27 +260,27 @@
                         }
                         formated.push(array);
                         $.ajax({
-                            url:'./setjson.php',
-                            type:'POST',
-                            data:{
+                            url: './setjson.php',
+                            type: 'POST',
+                            data: {
                                 'json': JSON.stringify(formated)
                             }
                         })
 
                         // Ajaxリクエストが成功した時発動
-                        .done( (json) => {
-                            console.log(JSON.parse(json));
-                        })
+                            .done((json) => {
+                                console.log(JSON.parse(json));
+                            })
 
-                        // Ajaxリクエストが失敗した時発動
-                        .fail( (data) => {
-                            console.log('fail');
-                        })
+                            // Ajaxリクエストが失敗した時発動
+                            .fail((data) => {
+                                console.log('fail');
+                            })
 
-                        // Ajaxリクエストが成功・失敗どちらでも発動
-                        .always( (data) => {
+                            // Ajaxリクエストが成功・失敗どちらでも発動
+                            .always((data) => {
 
-                        });
+                            });
                     }, false);
                 }, false);
             }
@@ -271,4 +292,9 @@
     .canvas {
         border: 1px solid #000;
     }
+
+    .moji {
+        font-size: 300%;
+    }
+
 </style>

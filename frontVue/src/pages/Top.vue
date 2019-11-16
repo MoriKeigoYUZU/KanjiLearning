@@ -42,13 +42,7 @@
                     </v-card-text>
 
                     <v-card-actions>
-                        <v-btn
-                                text
-                                color="deep-purple accent-4"
-                                onclick="KanjiLearning.vue"
-
-
-                        >
+                        <v-btn outline block color="green" href="KanjiLearning" dark>
                             TRY
                         </v-btn>
                         <v-spacer></v-spacer>
@@ -82,12 +76,11 @@
                         </v-card-text>
 
                         <v-card-actions>
-                            <v-btn
-                                    text
-                                    color="deep-purple accent-4"
-                            >
-                                 TRY
-                            </v-btn>
+<!--                            <router-link to="/QuestionTop">-->
+                                <v-btn outline block color="purple" dark to="QuestionTop">
+                                    TRY
+                                </v-btn>
+<!--                            </router-link>-->
                             <v-spacer></v-spacer>
                         </v-card-actions>
                     </v-card>
@@ -114,5 +107,8 @@
 </script>
 
 <style scoped>
+    a {
+        text-decoration:none;
+    }
 
 </style>
