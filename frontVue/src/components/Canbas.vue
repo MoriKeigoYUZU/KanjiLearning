@@ -1,14 +1,36 @@
 <template>
-    <div>
+    <v-container class="grey lighten-5">
+        {{msg}}
+        <v-row>
+            <v-col>
         <canvas width="320" height="320" class="canvas" id="canvas"></canvas>
-        <v-btn depressed small color="primary" @click="save">保存</v-btn>
+            </v-col>
+            <v-col>
+                <v-col>
+                <v-btn depressed small color="primary" @click="save(); dddd()" large>保存</v-btn>
+                </v-col>
+                <v-col>
+                <v-btn depressed small color="error"  @click="clearCanvas" large>リセット</v-btn>
+                </v-col>
+            </v-col>
+            <v-col cols="3"></v-col>
+
 <!--        <button @click="save">save</button>-->
-    </div>
+        </v-row>
+    </v-container>
 </template>
 
 <script>
+    import axios from 'axios';
     export default {
         name: "MyCanbas",
+
+        data() {
+            return {
+                tmp: "",
+                msg: "",
+            };
+        },
 
         mounted(){
             console.log(this.$el)
@@ -16,6 +38,25 @@
         },
 
         methods: {
+
+            dddd: function (){
+
+
+                const GET_URL = "http://localhost:8888/dataBase/get.php";
+                //ここにURL指定。
+
+                axios.post(GET_URL)
+                    .then(response => {
+                        this.msg = response.data;
+                    }).catch(err => {
+                    console.log('err:', err);
+                    this.msg = err;
+                });
+            },
+
+            clearCanvas: function () {
+                //後で書く
+            },
 
             save: function () {
 
@@ -26,7 +67,7 @@
                 // console.log(nowContextData);
 
                 let imageData = nowContextData.getImageData(0, 0, 64, 64);
-                console.log(imageData.data)
+                // console.log(imageData.data)
 
 
                 let data = imageData.data;
@@ -45,7 +86,26 @@
                     array.push(tmp[i]);
                 }
                 formated.push(array);
+
+                //これを送る
                 console.log(formated);
+
+
+                const POST_URL = "hoge"; // この変数に送り先のURLを代入
+                // 送るjson
+                const params = {
+                    // formatedには文字の０１データが二次元配列ではいってる
+                    mojidata : formated
+                };
+                axios.post(POST_URL, params)
+                    .then(response => {
+                        this.msg = response.data;
+                    }).catch(err => {
+                    console.log('err:', err);
+                });
+
+
+
             },
 
             //Canvas部分
@@ -143,7 +203,7 @@
                     let context = canvas.getContext('2d');
                     let rect = canvas.getBoundingClientRect();
                     context.beginPath();
-                    context.lineWidth = rect.width / 23;
+                    context.lineWidth = rect.width / 30;
                     context.lineCap = 'round';
                     context.strokeStyle = 'rgb(0, 0, 0, 255)';
                 }

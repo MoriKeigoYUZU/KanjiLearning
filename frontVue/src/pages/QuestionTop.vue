@@ -34,7 +34,7 @@
 
                         <v-card-actions>
                             <router-link to="/Question">
-                            <v-btn color="orange" outlined color="indigo" text>
+                            <v-btn style="color:orange;" text>
                                 レッスン開始
                             </v-btn>
                             </router-link>

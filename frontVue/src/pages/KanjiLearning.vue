@@ -4,50 +4,33 @@
         <v-row>
             <v-col cols="1"></v-col>
             <v-col>
-                <h1>漢字ラーニング</h1>
+                <h1>漢字ラーニング(漢字手書き検索)</h1>
             </v-col>
             <v-col cols="1"></v-col>
         </v-row>
-
-
-        <v-row align="center">
-
-
-<!--            <v-col class="text-center" cols="12" sm="4">-->
-<!--                <div id="com">-->
-<!--                    <p v-if="bool">{{ letter }}</p>-->
-<!--                    <v-btn v-on:click="countUp" color="primary" left>完了</v-btn>-->
-<!--                </div>-->
-<!--                <div id="rm">-->
-<!--                    <v-btn class="ma-2" outlined color="indigo">取り消し</v-btn>-->
-<!--                </div>-->
-<!--            </v-col>-->
-
-
-            <!--        <v-app>-->
-            <!--            <div ref="container">-->
-            <!--                <canvas id="canvas" width="64px" height="64px" ref="canvas"></canvas>-->
-            <!--            </div>-->
-            <!--            <v-btn color="primary" @click="save">一時保存</v-btn>-->
-            <!--        </v-app>-->
-        </v-row>
-
         <v-row>
-            <v-col></v-col><c-vol></c-vol>
+            <v-col cols="1"></v-col>
             <v-col>
-                <MyCanvas></MyCanvas>
+                <h2>✎枠内に手書きで漢字をかいてください。書き終えたら、完了をおしてください。
+                </h2>
             </v-col>
-
-            <v-col></v-col>
-            <v-col></v-col>
-            <v-col></v-col>
-            <v-col></v-col>
+            <v-col cols="1"></v-col>
         </v-row>
+        <br>
+        <v-row>
+                <v-col cols="1"></v-col>
+                <v-col>
+                    <MyCanvas></MyCanvas>
+                </v-col>
+                <v-col cols="3"></v-col>
+        </v-row>
+
+
     </v-container>
 </template>
 
 <script>
-    import MyCanvas from "../components/Canbas";
+import MyCanvas from "../components/Canbas";
     import Konva from "konva";
 
     export default {
@@ -3166,6 +3149,7 @@
                     this.canvas.width,
                     this.canvas.height
                 );
+
                 console.log(imageData.data);
 
                 let data = imageData.data;

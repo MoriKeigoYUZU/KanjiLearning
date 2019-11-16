@@ -13,6 +13,7 @@ import Signup from './pages/Signup';
 import Question from './pages/Question';
 import QuestionTop from './pages/QuestionTop';
 import Result from './pages/Result';
+import Top from './pages/Top'
 
 
 Vue.use(Router);
@@ -20,6 +21,11 @@ Vue.use(Router);
 export default new Router({
     mode: 'history',
     routes: [
+        {
+            path: '/Top',
+            name: 'Top',
+            component: Top
+        },
         {
             path: '/',
             name: 'HelloWorld',
