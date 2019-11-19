@@ -33,11 +33,11 @@
                         </v-card-text>
 
                         <v-card-actions>
-                            <router-link to="/Question">
-                            <v-btn style="color:orange;" text>
+<!--                            <router-link href="/Question">-->
+                            <v-btn style="color:orange;" text href="/Question">
                                 レッスン開始
                             </v-btn>
-                            </router-link>
+<!--                            </router-link>-->
                         </v-card-actions>
                     </v-card>
                 </v-card>
@@ -207,6 +207,11 @@
                 </v-card>
             </v-card>
         </v-row>
+        <v-col>
+            <v-btn outline large color="purple" dark to="Top">
+                トップページに戻る
+            </v-btn>
+        </v-col>
     </v-container>
 
 

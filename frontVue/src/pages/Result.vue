@@ -33,8 +33,12 @@
             <v-col class="text-center" cols="12" sm="4" >
 
                 <div class="my-2" align="right">
+                    <v-btn outline large color="purple" dark to="Top">
+                        トップページに戻る
+                    </v-btn>
+                    <span>&nbsp;</span>
                     <v-btn depressed large color="#527AFF">やり直す</v-btn>
-                    /
+                    <span>&nbsp;</span>
                     <router-link to="/QuestionTop"><v-btn depressed large color="#FF7B4E">終了</v-btn></router-link>
 
                 </div>

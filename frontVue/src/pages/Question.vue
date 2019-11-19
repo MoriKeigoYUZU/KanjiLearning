@@ -32,34 +32,32 @@
             <v-col>
                 <div style="margin-bottom:166px"></div>
                 <div class="my-2">
-                    <v-btn depressed color="primary" valign="bottom">取り消し</v-btn>
+<!--                    <v-btn depressed color="primary" valign="bottom">取り消し</v-btn>-->
                 </div>
 
             </v-col>
 
-            <v-col></v-col>
-            <v-col></v-col>
-            <v-col></v-col>
-            <v-col></v-col>
-        </v-row>
-        <v-row><v-col></v-col></v-row>
 
-        <v-row>
-            <v-col></v-col>
-            <v-col></v-col>
 
             <v-col>
-                <v-btn depressed color="#FF8100" valign="bottom">前の問題</v-btn>/
-                <v-btn depressed color="#FF8100" valign="bottom">次の問題</v-btn>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+                <v-low>
+                <v-btn depressed color="#FF8100" valign="bottom">前の問題</v-btn>
+                    <span>&nbsp;</span>
+                <v-btn depressed color="#FF8100" valign="bottom" to="Result">次の問題</v-btn>
+                </v-low>
             </v-col>
+            <v-col></v-col>
         </v-row>
+
     </v-container>
 
 </template>
 
 <script>
 
-    import MyCanvas from '../components/Canbas'
+    import MyCanvas from '../components/CanbasL'
     import QuestionSentence from '@/components/QuestionSentence.vue'
     import axios from 'axios';
 
