@@ -55,10 +55,11 @@
             // dddd: function (){
             //
             //
-            //     const GET_URL = "http://localhost:8888/dataBase/get.php";
+            //     const POST_URL = "cgi-bin/.php";
+            //     const params =
             //     //ここにURL指定。
             //
-            //     axios.post(GET_URL)
+            //     axios.post(POST_URL, params)
             //         .then(response => {
             //             this.msg = response.data;
             //         }).catch(err => {
