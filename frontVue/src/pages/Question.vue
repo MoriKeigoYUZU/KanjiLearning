@@ -83,7 +83,7 @@
 
 
                 // const POST_URL = "http://kanjilearnig.tk/cgi-bin/question.py";
-                const POST_URL = "http://221.118.70.206/cgi-bin/question.py";
+                const POST_URL = "http://localhost:8000/cgi-bin/question.py";
                 const params = {"grade": 5};
                 //ここにURL指定。
 
