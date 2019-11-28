@@ -84,7 +84,9 @@
 
                 // const POST_URL = "http://kanjilearnig.tk/cgi-bin/question.py";
                 const POST_URL = "http://221.118.70.206:8000/cgi-bin/question.py";
-                const params = {"grade": 5};
+                // process.env.VUE_APP_URL_
+                let params = new URLSearchParams();
+                params.append("grade", 5);
                 //ここにURL指定。
 
                 axios.post(POST_URL, params)
