@@ -89,7 +89,8 @@
 
                 // console.log(nowContextData);
 
-                let imageData = nowContextData.getImageData(0, 0, 64, 64);
+                // let imageData = nowContextData.getImageData(0, 0, 64, 64);
+                let imageData = nowContextData.getImageData(0, 0, 320, 320);
                 // console.log(imageData.data)
 
 
@@ -102,7 +103,8 @@
                 let array = [];
                 let formated = []
                 for (var i = 0; i < tmp.length; i++) {
-                    if (i != 0 && i % 64 == 0) {
+                    // if (i != 0 && i % 64 == 0) {
+                    if (i != 0 && i % 320 == 0) {
                         formated.push(array);
                         array = [];
                     }
@@ -236,16 +238,19 @@
                         let oldCanvas = document.getElementById('canvas');
 
                         let canvas = document.createElement('canvas');
-                        canvas.width = 64;
-                        canvas.height = 64;
+                        canvas.width = 320;
+                        canvas.height = 320;
                         let context = canvas.getContext('2d');
-                        context.drawImage(oldCanvas, 0, 0, 64, 64);
+                        // 320
+                        // context.drawImage(oldCanvas, 0, 0, 64, 64);
+                        context.drawImage(oldCanvas, 0, 0, 320, 320);
 
                         let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
 
 
                         let data = imageData.data;
                         let tmp = [];
+                        // for (var i = 0; i < data.length; i += 4) {
                         for (var i = 0; i < data.length; i += 4) {
                             let p = (data[i] == 0 && data[i + 1] == 0 && data[i + 2] == 0) ? 0 : 1;
                             tmp.push(p);
