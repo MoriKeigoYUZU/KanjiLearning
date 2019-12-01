@@ -78,39 +78,28 @@
             MyCanvas
         },
 
+        beforeCreate(){
+            getQuestionAndAnswer();
+        },
+
         methods: {
-            get_question: function () {
+            getQuestionAndAnswer() {
+            // const POST_URL = "http://kanjilearnig.tk/cgi-bin/question.py";
+            const POST_URL = process.env.VUE_APP_URL_BASE + "question.py";
+            // process.env.VUE_APP_URL_
+            let params = new URLSearchParams();
+            params.append("grade", this.$route.query.grade);
+            //ここにURL指定。
 
-
-                // const POST_URL = "http://kanjilearnig.tk/cgi-bin/question.py";
-                const POST_URL = "http://221.118.70.206:8000/cgi-bin/question.py";
-                // process.env.VUE_APP_URL_
-                let params = new URLSearchParams();
-                params.append("grade", 5);
-                //ここにURL指定。
-
-                axios.post(POST_URL, params)
-                    .then(response => {
-                        this.msg = response.data;
-                    }).catch(err => {
+            axios.post(POST_URL, params)
+                .then(response => {
+                    this.question = response.data.question;
+                    this.answer = response.data.question;
+                }).catch(err => {
                     console.log('err:', err);
-                    this.msg = err;
                 });
             },
         },
-
-        created() {
-            // const GET_URL = "http://localhost:8888/dataBase/get.php";
-            //
-            // axios.get(GET_URL)
-            //     .then(response => {
-            //         this.query = response.data.kanji[0];
-            //     }).catch(err => {
-            //     console.log('err:', err);
-            // });
-
-            this.get_question();
-        }
     }
 </script>
 
