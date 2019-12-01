@@ -22,7 +22,14 @@
                 <v-col>
                     <MyCanvas></MyCanvas>
                 </v-col>
-                <v-col cols="3"></v-col>
+                <v-col>あなたが書いた漢字は、</v-col>
+                    <!-- <span v-for="n in 5">{{ kanji[n-1] }} </span> -->
+                    <span v-for="n in 5"> <v-btn  min-height="100px" min-width ="100px" tile outlined color="burakku"><span class = "display-3 font-weight-black">木</span></v-btn> </span>
+                <!-- <v-col cols="3"></v-col> -->
+                <v-row></v-row>
+                <v-row>
+                    <!-- <v-btn  min-height="100px" min-width ="100px" tile outlined color="burakku"><span class = "display-3 font-weight-black">木</span></v-btn> -->
+                </v-row>
         </v-row>
         <v-row>
             <v-col cols="1"></v-col>
