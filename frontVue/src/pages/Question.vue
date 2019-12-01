@@ -69,7 +69,9 @@
         data() {
             return {
                 query: "",
-                msg: ""
+                msg: "",
+                question: "",
+                answer: "",
             };
         },
 
