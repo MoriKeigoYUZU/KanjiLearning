@@ -17,7 +17,7 @@
                     <v-row><v-col></v-col></v-row>
                     <v-row>
                         <v-col>
-                            <div class="display-4">木</div>
+                            <div class="display-4"> {{kanji[0]}} </div>
                             <!-- <div class="display-4">{{}}</div> -->
                         </v-col>
                         <v-col><div class = "headline">訓読み : {{kunyomi}}</div><div class = "headline ">音読み : {{onyomi}}</div><div class = "headline">画数　 : {{kakusu}}</div></v-col>
@@ -108,7 +108,7 @@
                 let tmp = [];
 
                 for (var i = 0; i < data.length; i += 4) {
-                    let p = (data[i] == 0 && data[i + 1] == 0 && data[i + 2] == 0) ? 255 : 0;
+                    let p = (data[i] == 0 && data[i + 1] == 0 && data[i + 2] == 0) ? 0 : 255;
                     tmp.push(p);
                 }
 
@@ -133,6 +133,27 @@
                 var tbl = new Array(64);
                 for(let y = 0; y < 64; y++) {
                     tbl[y] = new Array(64).fill(255);
+                }
+
+                var judgment = 0;
+                for(let i = 0 ; i < 64 ; i++){
+                    for(let j = 0 ; j < 64 ; j++){
+                        for(let mi = (((i + 1) * 5) - 5) ; mi < ((i + 1) * 5) ; mi++){
+                            for(let mj = (((j + 1) * 5) - 5) ; mj < ((j + 1) * 5) ; mj++){
+                                // console.log(mi);
+                                // console.log(mj);
+                                
+                                if(formated[mi][mj] === 0){
+                                    tbl[i][j] = 0;
+                                    // console.log(judgment)
+                                }
+                            }
+                        }
+                        // if(judgment !== 0){
+                        //     tbl[i][j] = 0;
+                        // }
+                        // var judgment = 0;
+                    }
                 }
                 // tbl[1][1] = 255;
                 this.object = tbl;
