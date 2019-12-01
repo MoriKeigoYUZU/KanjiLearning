@@ -50,6 +50,10 @@
                 tmp: "",
                 msg: "",
                 object: "",
+                kanji: "",
+                onyomi: "",
+                kunyomi: "",
+                kakusu: ""
             };
         },
 
