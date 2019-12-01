@@ -11,7 +11,7 @@
 
         <h3>問題に挑戦✎</h3>
         <v-row no-gutters>
-                <v-card class="pa-2" outlined tile>
+                <v-card class="pa-2" outlined>
                     <v-card
                             class="mx-auto"
                             max-width="395"
@@ -24,16 +24,15 @@
                             <v-card-title>日本漢字能力検定10級</v-card-title>
                         </v-img>
 
-                        <v-card-subtitle class="pb-0">Kanji test level 10</v-card-subtitle>
+                        <v-card-subtitle class="font-italic font-weight-light">Kanji test level 10</v-card-subtitle>
 
                         <v-card-text class="text--primary">
-                            <div class = "headline font-weight-black text-center"><span style="color:red;">オオ</span>きないえにすんでいる。</div>
+                            <div class = "headline font-weight-black text-center">例:<span style="color:#FF8D01;">オオ</span>きないえにすんでいる。</div>
                         </v-card-text>
 
                         <v-card-actions>
-<!--                            <router-link href="/Question">-->
-                            <v-btn style="color:orange;" text href="/Question?grade=10">
-                                レッスン開始
+                            <v-btn color="orange" outlined block="" class="font-weight-black title" href="/Question?grade=10">
+                                Let's try!!
                             </v-btn>
 <!--                            </router-link>-->
                         </v-card-actions>
@@ -53,10 +52,10 @@
                         <v-card-title>日本漢字能力検定9級</v-card-title>
                     </v-img>
 
-                    <v-card-subtitle class="pb-0">Kanji test level 9</v-card-subtitle>
+                    <v-card-subtitle class="font-italic font-weight-light">Kanji test level 9</v-card-subtitle>
 
                     <v-card-text class="text--primary">
-                        <div class = "headline font-weight-black text-center">家に先生が<span style="color:red;">ク</span>る。</div>
+                        <div class = "headline font-weight-black text-center">例:家に先生が<span style="color:#FF8D01;">ク</span>る。</div>
                     </v-card-text>
 
                     <v-card-actions>
@@ -84,10 +83,10 @@
                         <v-card-title>日本漢字能力検定8級</v-card-title>
                     </v-img>
 
-                    <v-card-subtitle class="pb-0">Kanji test level 8</v-card-subtitle>
+                    <v-card-subtitle class="font-italic font-weight-light">Kanji test level 8</v-card-subtitle>
 
                     <v-card-text class="text--primary">
-                        <div class = "headline font-weight-black text-center">お<span style="color:red;">レイ</span>の手紙を書く。</div>
+                        <div class = "headline font-weight-black text-center">例:お<span style="color:#FF8D01;">レイ</span>の手紙を書く。</div>
                     </v-card-text>
 
                     <v-card-actions>
@@ -119,10 +118,10 @@
                         <v-card-title>日本漢字能力検定7級</v-card-title>
                     </v-img>
 
-                    <v-card-subtitle class="pb-0">Kanji test level 7</v-card-subtitle>
+                    <v-card-subtitle class="font-italic font-weight-light">Kanji test level 7</v-card-subtitle>
 
                     <v-card-text class="text--primary">
-                        <div class = "headline font-weight-black text-center"><span style="color:red;">ゼンゼン</span>面白くない。</div>
+                        <div class = "headline font-weight-black text-center">例:<span style="color:#FF8D01;">ゼンゼン</span>面白くない。</div>
                     </v-card-text>
 
                     <v-card-actions>
@@ -150,10 +149,10 @@
                         <v-card-title>日本漢字能力検定6級</v-card-title>
                     </v-img>
 
-                    <v-card-subtitle class="pb-0">Kanji test level 6</v-card-subtitle>
+                    <v-card-subtitle class="font-italic font-weight-light">Kanji test level 6</v-card-subtitle>
 
                     <v-card-text class="text--primary">
-                        <div class = "headline font-weight-black text-center">土地の<span style="color:red;">カチ</span>を調べる。</div>
+                        <div class = "headline font-weight-black text-center">例:土地の<span style="color:#FF8D01;">カチ</span>を調べる。</div>
                     </v-card-text>
 
                     <v-card-actions>
@@ -181,10 +180,10 @@
                         <v-card-title>日本漢字能力検定5級</v-card-title>
                     </v-img>
 
-                    <v-card-subtitle class="pb-0">Kanji test level 5</v-card-subtitle>
+                    <v-card-subtitle class="font-italic font-weight-light">Kanji test level 5</v-card-subtitle>
 
                     <v-card-text class="text--primary">
-                        <div class = "headline font-weight-black text-center"><span style="color:red;">ナイカク</span>の支持率が発表された。</div>
+                        <div class = "headline font-weight-black text-center">例:いらないものを<span style="color:#FF8D01;">ス</span>てる。</div>
                     </v-card-text>
 
                     <v-card-actions>
@@ -215,10 +214,10 @@
                         <v-card-title>日本漢字能力検定4級</v-card-title>
                     </v-img>
 
-                    <v-card-subtitle class="pb-0">Kanji test level 4</v-card-subtitle>
+                    <v-card-subtitle class="font-italic font-weight-light">Kanji test level 4</v-card-subtitle>
 
                     <v-card-text class="text--primary">
-                        <div class = "headline font-weight-black text-center">貴重な<span style="color:red;">タイケン</span>をした。</div>
+                        <div class = "headline font-weight-black text-center">例:貴重な<span style="color:#FF8D01;">タイケン</span>をした。</div>
                     </v-card-text>
 
                     <v-card-actions>
@@ -246,10 +245,10 @@
                         <v-card-title>日本漢字能力検定3級</v-card-title>
                     </v-img>
 
-                    <v-card-subtitle class="pb-0">Kanji test level 3</v-card-subtitle>
+                    <v-card-subtitle class="font-italic font-weight-light">Kanji test level 3</v-card-subtitle>
 
                     <v-card-text class="text--primary">
-                        <div class = "headline font-weight-black text-center">株式会社を<span style="color:red;">セツリツ</span>する。</div>
+                        <div class = "headline font-weight-black text-center">例:株式会社を<span style="color:#FF8D01;">セツリツ</span>する。</div>
                     </v-card-text>
 
                     <v-card-actions>
@@ -277,10 +276,10 @@
                         <v-card-title>日本漢字能力検定準2級</v-card-title>
                     </v-img>
 
-                    <v-card-subtitle class="pb-0">Kanji test level Quasi 2</v-card-subtitle>
+                    <v-card-subtitle class="font-italic font-weight-light">Kanji test level Quasi 2</v-card-subtitle>
 
                     <v-card-text class="text--primary">
-                        <div class = "headline font-weight-black text-center">注意事項を<span style="color:red;">キサイ</span>する。</div>
+                        <div class = "headline font-weight-black text-center">例:注意事項を<span style="color:#FF8D01;">キサイ</span>する。</div>
                     </v-card-text>
 
                     <v-card-actions>
@@ -309,10 +308,10 @@
                         <v-card-title>日本漢字能力検定2級</v-card-title>
                     </v-img>
 
-                    <v-card-subtitle class="pb-0">Kanji test level 2</v-card-subtitle>
+                    <v-card-subtitle class="font-italic font-weight-light">Kanji test level 2</v-card-subtitle>
 
                     <v-card-text class="text--primary">
-                        <div class = "headline font-weight-black text-center">日本全国を<span style="color:red;">モウラ</span>する。</div>
+                        <div class = "headline font-weight-black text-center">例:日本全国を<span style="color:#FF8D01;">モウラ</span>する。</div>
                     </v-card-text>
 
                     <v-card-actions>
@@ -340,10 +339,10 @@
                         <v-card-title>日本漢字能力検定準1級</v-card-title>
                     </v-img>
 
-                    <v-card-subtitle class="pb-0">Kanji test level Quasi 1</v-card-subtitle>
+                    <v-card-subtitle class="font-italic font-weight-light">Kanji test level Quasi 1</v-card-subtitle>
 
                     <v-card-text class="text--primary">
-                        <div class = "headline font-weight-black text-center"><span style="color:red;">Coming Soon!!</span></div>
+                        <div class = "headline font-weight-black text-center"><span style="color:#FF8D01;">Coming Soon!!</span></div>
                     </v-card-text>
 
                     <v-card-actions>
@@ -370,10 +369,10 @@
                         <v-card-title>日本漢字能力検定1級</v-card-title>
                     </v-img>
 
-                    <v-card-subtitle class="pb-0">Kanji test level 1</v-card-subtitle>
+                    <v-card-subtitle class="font-italic font-weight-light">Kanji test level 1</v-card-subtitle>
 
                     <v-card-text class="text--primary">
-                        <div class = "headline font-weight-black text-center"><span style="color:red;">Coming Soon!!</span></div>
+                        <div class = "headline font-weight-black text-center"><span style="color:#FF8D01;">Coming Soon!!</span></div>
                     </v-card-text>
 
                     <v-card-actions>
@@ -381,7 +380,7 @@
                                 color="orange"
                                 text
                         >
-                            
+
                         </v-btn>
 
 

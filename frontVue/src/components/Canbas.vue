@@ -7,35 +7,32 @@
 
                     <v-col>
                         <v-btn class="ma-2" depressed small color="primary" @click="save()" large value="Click">保存</v-btn>
-                        <v-btn class="ma-2" depressed small color="error" large href="/KanjiLearning">リセット</v-btn>
+                        <!-- <v-btn class="ma-2" depressed small color="error" @click="MyCanvas()" large href="/KanjiLearning">リセット</v-btn> -->
+                        <v-btn class="ma-2" depressed small color="error" id="reset" large>リセット</v-btn>
                     </v-col>
             </v-col>
             <v-row>
                 <v-col cols = "1"></v-col>
                 <v-col>
-                    <v-row><span class = "title font-weight-bold">あなたが書いた漢字は、</span></v-row>
+                    <v-row><span class = "title font-weight-bold">{{moji[0]}}</span></v-row>
                     <v-row><v-col></v-col></v-row>
                     <v-row>
-                        <v-col>
-                            <div class="display-4"> {{kanji[0]}} </div>
-                            <!-- <div class="display-4">{{}}</div> -->
-                        </v-col>
-                        <v-col><div class = "headline">訓読み : {{kunyomi}}</div><div class = "headline ">音読み : {{onyomi}}</div><div class = "headline">画数　 : {{kakusu}}</div></v-col>
-                        <!-- <v-col cols="2"></v-col> -->
-                        <!-- <div class="display-4">{{}}</div> -->
+                            <div class="display-4"> {{kanji[number]}} </div>
+                            <v-col cols = "1"></v-col>
+                        <v-col><div class = "headline">{{moji[1]}}{{kunyomi[number]}}</div><div class = "headline ">{{moji[2]}}{{onyomi[number]}}</div><div class = "headline">{{moji[3]}}{{kakusu[number]}}</div></v-col>
                     </v-row>
                     <v-col></v-col>
                     <v-row>
                         <v-col cols ="1"></v-col>
-                    <!-- <span v-for="n in 5">{{ kanji[n-1] }} </span> -->
-                    <span v-for="n in 5"> <v-btn  min-height="100px" min-width ="100px" tile outlined color="burakku"><span class = "display-3 font-weight-black">木</span></v-btn> </span>
+                    <span v-for="n in 5">
+                        <v-btn min-height="100px" min-width ="100px" tile outlined color="burakku" @click="choiceKanji(n)"><span class = "display-3 font-weight-black">{{ kanji[n-1] }}</span></v-btn>
+                    </span>
+                    <!-- <p id = "choice">dvda</p> -->
                     </v-row>
                 </v-col>
                 <v-col cols="2"></v-col>
             </v-row>
-
         </v-row>
-            <!--            <v-col cols="3"></v-col>-->
     </v-container>
 </template>
 
@@ -53,7 +50,9 @@
                 kanji: "",
                 onyomi: "",
                 kunyomi: "",
-                kakusu: ""
+                kakusu: "",
+                number: "0",
+                moji: "",
             };
         },
 
@@ -63,6 +62,11 @@
         },
 
         methods: {
+
+            choiceKanji(num) {
+                console.log(num);
+                this.number = num - 1;
+            },
 
             predictKanji(){
                 const POST_URL = process.env.VUE_APP_URL_BASE + "kanji_search.py";
@@ -85,23 +89,17 @@
                 //後で書く
             },
 
+
             save: function () {
+
+                this.moji=["あなたの書いた字は、","訓読み :","音読み :","画数　 :"]
 
                 const nowContext = document.getElementById("canvas");
                 // console.log(nowContext)
                 const nowContextData = nowContext.getContext('2d');
 
 
-                // var text1 = document.getElementById("text1");
-                // text1.innerHTML = "<p><h1>あなたが書いた字は</h1></p><center></center>";
-
-                // console.log(nowContextData);
-
-                // console.log("gaernarg;nagr;nagr;oaern;aergn;aegrnkaergn;ergnlare;ln");
-
                 let imageData = nowContextData.getImageData(0, 0, 320, 320);
-                // let imageData = nowContextData.getImageData(0, 0, 320, 320);
-                // console.log(imageData.data)
 
 
                 let data = imageData.data;
@@ -140,22 +138,13 @@
                     for(let j = 0 ; j < 64 ; j++){
                         for(let mi = (((i + 1) * 5) - 5) ; mi < ((i + 1) * 5) ; mi++){
                             for(let mj = (((j + 1) * 5) - 5) ; mj < ((j + 1) * 5) ; mj++){
-                                // console.log(mi);
-                                // console.log(mj);
-                                
                                 if(formated[mi][mj] === 0){
                                     tbl[i][j] = 0;
-                                    // console.log(judgment)
                                 }
                             }
                         }
-                        // if(judgment !== 0){
-                        //     tbl[i][j] = 0;
-                        // }
-                        // var judgment = 0;
                     }
                 }
-                // tbl[1][1] = 255;
                 this.object = tbl;
                 console.log(tbl);
 
@@ -244,13 +233,15 @@
                         }
                     }, false);
 
+                    var reset = document.getElementById('reset');
+
                     // ダブルクリックした時
-                    canvas.addEventListener('dblclick', () => {
+                    reset.addEventListener('click', () => {
                         canvas.width = canvas.width;
                         fillWhite(canvas);
                         drawDottedLine(canvas);
                         initPencil(canvas);
-                    });
+                    },false);
                 }
 
                 // 鉛筆の太さや色などの初期化を行うメソッド
@@ -335,5 +326,10 @@
     .moji {
         font-size: 300%;
     }
+
+    /* .checkButton {
+    display: none;
+    
+} */
 
 </style>
