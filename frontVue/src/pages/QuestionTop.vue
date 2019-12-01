@@ -32,7 +32,7 @@
 
                         <v-card-actions>
 <!--                            <router-link href="/Question">-->
-                            <v-btn style="color:orange;" text href="/Question">
+                            <v-btn style="color:orange;" text href="/Question?grade=10">
                                 レッスン開始
                             </v-btn>
 <!--                            </router-link>-->
@@ -63,6 +63,7 @@
                         <v-btn
                                 color="orange"
                                 text
+                                href="/Question?grade=9"
                         >
                             レッスン開始
                         </v-btn>
@@ -93,6 +94,7 @@
                         <v-btn
                                 color="orange"
                                 text
+                                href="/Question?grade=8"
                         >
                             レッスン開始
                         </v-btn>
@@ -127,6 +129,7 @@
                         <v-btn
                                 color="orange"
                                 text
+                                href="/Question?grade=7"
                         >
                             レッスン開始
                         </v-btn>
@@ -157,6 +160,7 @@
                         <v-btn
                                 color="orange"
                                 text
+                                href="/Question?grade=6"
                         >
                             レッスン開始
                         </v-btn>
@@ -187,6 +191,7 @@
                         <v-btn
                                 color="orange"
                                 text
+                                href="/Question?grade=5"
                         >
                             レッスン開始
                         </v-btn>
@@ -220,6 +225,7 @@
                         <v-btn
                                 color="orange"
                                 text
+                                href="/Question?grade=4"
                         >
                             レッスン開始
                         </v-btn>
@@ -250,6 +256,7 @@
                         <v-btn
                                 color="orange"
                                 text
+                                href="/Question?grade=3"
                         >
                             レッスン開始
                         </v-btn>
@@ -280,6 +287,7 @@
                         <v-btn
                                 color="orange"
                                 text
+                                href="/Question?grade=2．5"
                         >
                             レッスン開始
                         </v-btn>
@@ -311,6 +319,7 @@
                         <v-btn
                                 color="orange"
                                 text
+                                href="/Question?grade=2"
                         >
                             レッスン開始
                         </v-btn>
@@ -342,7 +351,7 @@
                                 color="orange"
                                 text
                         >
-                            レッスン開始
+
                         </v-btn>
 
                     </v-card-actions>
@@ -372,7 +381,7 @@
                                 color="orange"
                                 text
                         >
-                            レッスン開始
+                            
                         </v-btn>
 
 

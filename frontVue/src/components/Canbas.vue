@@ -6,7 +6,7 @@
                 <canvas width="320" height="320" class="canvas" id="canvas"></canvas>
 
                     <v-col>
-                        <v-btn class="ma-2" depressed small color="primary" @click="save(); dddd()" large value="Click">保存</v-btn>
+                        <v-btn class="ma-2" depressed small color="primary" @click="save()" large value="Click">保存</v-btn>
                         <v-btn class="ma-2" depressed small color="error" large href="/KanjiLearning">リセット</v-btn>
                     </v-col>
             </v-col>
@@ -20,7 +20,7 @@
                             <div class="display-4">木</div>
                             <!-- <div class="display-4">{{}}</div> -->
                         </v-col>
-                        <v-col><div class = "headline">訓読み : {{}}</div><div class = "headline ">音読み : {{}}</div><div class = "headline">画数　 : {{}}</div></v-col>
+                        <v-col><div class = "headline">訓読み : {{kunyomi}}</div><div class = "headline ">音読み : {{onyomi}}</div><div class = "headline">画数　 : {{kakusu}}</div></v-col>
                         <!-- <v-col cols="2"></v-col> -->
                         <!-- <div class="display-4">{{}}</div> -->
                     </v-row>
@@ -65,13 +65,11 @@
         methods: {
 
             predictKanji(){
-            
-            
-                const POST_URL = process.env.VUE_APP_URL_BASE + "kanji_search.php";
+                const POST_URL = process.env.VUE_APP_URL_BASE + "kanji_search.py";
                 let params = new URLSearchParams();
-                params.append("object", this.object);
+                params.append("object", JSON.stringify(this.object));
                 //ここにURL指定。
-            
+
                 axios.post(POST_URL, params)
                     .then(response => {
                         this.kanji = response.data.kanji;
@@ -89,20 +87,17 @@
 
             save: function () {
 
-                var text1 = document.getElementById("text1");
-                text1.innerHTML = "<p><h1>あなたが書いた字は</h1></p><center></center>";
-
-                var text2 = document.getElementById("text2");
-                text2.innerHTML = "<center><h1>木</h1></center>";
-
-                var text3 = document.getElementById("text3");
-                text3.innerHTML = "<h1 align='right'>です。</h1>";
-
                 const nowContext = document.getElementById("canvas");
                 // console.log(nowContext)
-                const nowContextData = nowContext.getContext('2d')
+                const nowContextData = nowContext.getContext('2d');
+
+
+                // var text1 = document.getElementById("text1");
+                // text1.innerHTML = "<p><h1>あなたが書いた字は</h1></p><center></center>";
 
                 // console.log(nowContextData);
+
+                // console.log("gaernarg;nagr;nagr;oaern;aergn;aegrnkaergn;ergnlare;ln");
 
                 let imageData = nowContextData.getImageData(0, 0, 320, 320);
                 // let imageData = nowContextData.getImageData(0, 0, 320, 320);
@@ -111,16 +106,17 @@
 
                 let data = imageData.data;
                 let tmp = [];
+
                 for (var i = 0; i < data.length; i += 4) {
                     let p = (data[i] == 0 && data[i + 1] == 0 && data[i + 2] == 0) ? 255 : 0;
                     tmp.push(p);
                 }
+
                 let object = [];
                 let formated = [];
                 for (var i = 0; i < tmp.length; i++) {
                     // if (i != 0 && i % 64 == 0) {
                     if (i != 0 && i % 320 == 0) {
-                        // formated.push(object);
                         formated.push(object);
                         object = [];
                     }
@@ -128,43 +124,21 @@
                 }
                 formated.push(object);
 
+
                 //これを送る
                 console.log(formated);
 
-                // var completionTmp = [];
-                // var completion = [];
-                // for (var i = 0; i < 64; i++) {
-                //     for(var j = 0 ; j < 64; j++){
-                //         completionpTmp.push(1);
-                //     }
-                //     completion.push(completionpTmp);
-                //     completionpTmp = [];
-                // }
 
-                // console.log(completion);
-
+                console.log("fds")
                 var tbl = new Array(64);
                 for(let y = 0; y < 64; y++) {
-                    tbl[y] = new Array(64).fill(0);
+                    tbl[y] = new Array(64).fill(255);
                 }
-                tbl[1][1] = 1;
+                // tbl[1][1] = 255;
+                this.object = tbl;
                 console.log(tbl);
 
-
-                const POST_URL = "hoge"; // この変数に送り先のURLを代入
-                // 送るjson
-                const params = {
-                    // formatedには文字の０１データが二次元配列ではいってる
-                    mojidata: formated
-                };
-                axios.post(POST_URL, params)
-                    .then(response => {
-                        this.msg = response.data;
-                    }).catch(err => {
-                    console.log('err:', err);
-                });
-
-
+                this.predictKanji()
             },
 
             //Canvas部分

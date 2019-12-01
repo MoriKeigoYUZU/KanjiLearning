@@ -2,11 +2,14 @@
 
     <v-container class="grey lighten-5">
 
+        <button @click="plus">+1</button>
+        <h1>{{ this.$store.state.count }}</h1>
+
         <v-row>
             <v-col cols="1"></v-col>
             <v-col>
                 <h1>問題を解け</h1>
-                <p>問題：{{question}}</p>
+                <p>問題：{{question[1]}}</p>
                 <p>回答：{{answer}}</p>
             </v-col>
             <v-col cols="1"></v-col>
@@ -123,6 +126,10 @@
                         console.log('err:', err);
                     });
             },
+
+            plus() {
+                this.$store.commit('increment');
+            }
         },
     }
 </script>
