@@ -65,9 +65,9 @@
         methods: {
 
             predictKanji(){
-                const POST_URL = process.env.VUE_APP_URL_BASE + "kanji_search.php";
+                const POST_URL = process.env.VUE_APP_URL_BASE + "kanji_search.py";
                 let params = new URLSearchParams();
-                params.append("object", this.object);
+                params.append("object", JSON.stringify(this.object));
                 //ここにURL指定。
 
                 axios.post(POST_URL, params)
@@ -132,9 +132,9 @@
                 console.log("fds")
                 var tbl = new Array(64);
                 for(let y = 0; y < 64; y++) {
-                    tbl[y] = new Array(64).fill(0);
+                    tbl[y] = new Array(64).fill(255);
                 }
-                tbl[1][1] = 255;
+                // tbl[1][1] = 255;
                 this.object = tbl;
                 console.log(tbl);
 
