@@ -52,21 +52,24 @@
 
         methods: {
 
-            // dddd: function (){
-            //
-            //
-            //     const POST_URL = "cgi-bin/.php";
-            //     const params =
-            //     //ここにURL指定。
-            //
-            //     axios.post(POST_URL, params)
-            //         .then(response => {
-            //             this.msg = response.data;
-            //         }).catch(err => {
-            //         console.log('err:', err);
-            //         this.msg = err;
-            //     });
-            // },
+            predictKanji(){
+            
+            
+                const POST_URL = process.env.VUE_APP_URL_BASE + "kanji_search.php";
+                let params = new URLSearchParams();
+                params.append("object", this.object);
+                //ここにURL指定。
+            
+                axios.post(POST_URL, params)
+                    .then(response => {
+                        this.kanji = response.data.kanji;
+                        this.onyomi = response.data.onyomi;
+                        this.kunyomi = response.data.kunyomi;
+                        this.kakusu = response.data.kakusu;
+                    }).catch(err => {
+                    console.log('err:', err);
+                });
+            },
 
             clearCanvas: function () {
                 //後で書く
