@@ -78,7 +78,7 @@
             MyCanvas
         },
 
-        beforeCreate(){
+        created(){
             getQuestionAndAnswer();
         },
 
