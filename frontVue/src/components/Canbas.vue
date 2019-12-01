@@ -17,7 +17,6 @@
             <v-row>
                 <v-col cols="2"></v-col>
                 <v-col>
-<!--                    <div class="moji">-->
                     <div id="text1"></div>
                     <br>
                         <div id="text2" class="moji"></div>
