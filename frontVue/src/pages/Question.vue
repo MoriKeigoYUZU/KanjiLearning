@@ -6,7 +6,8 @@
             <v-col cols="1"></v-col>
             <v-col>
                 <h1>問題を解け</h1>
-                {{msg}}
+                <p>問題：{{question}}</p>
+                <p>回答：{{answer}}</p>
             </v-col>
             <v-col cols="1"></v-col>
         </v-row>
@@ -81,10 +82,11 @@
         },
 
         created(){
-            getQuestionAndAnswer();
+            this.getQuestionAndAnswer();
         },
 
         methods: {
+            // URLにパラメータとしてgradeが必要
             getQuestionAndAnswer() {
             // const POST_URL = "http://kanjilearnig.tk/cgi-bin/question.py";
             const POST_URL = process.env.VUE_APP_URL_BASE + "question.py";
@@ -96,7 +98,7 @@
             axios.post(POST_URL, params)
                 .then(response => {
                     this.question = response.data.question;
-                    this.answer = response.data.question;
+                    this.answer = response.data.answer;
                 }).catch(err => {
                     console.log('err:', err);
                 });
