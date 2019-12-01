@@ -1,33 +1,41 @@
 <template>
     <v-container class="grey lighten-5">
-        <!--        {{msg}}-->
         <v-row>
+            <v-col cols="1"></v-col>
             <v-col>
                 <canvas width="320" height="320" class="canvas" id="canvas"></canvas>
-            </v-col>
-            <v-col>
-                <v-row>
-                    <v-btn depressed small color="primary" @click="save(); dddd()" large value="Click">保存</v-btn>
-                </v-row>
-                <v-row>
-                    <v-btn depressed small color="error" large href="/KanjiLearning">リセット</v-btn>
-                </v-row>
-            </v-col>
 
+                    <v-col>
+                        <v-btn class="ma-2" depressed small color="primary" @click="save(); dddd()" large value="Click">保存</v-btn>
+                        <v-btn class="ma-2" depressed small color="error" large href="/KanjiLearning">リセット</v-btn>
+                    </v-col>
+            </v-col>
             <v-row>
-                <v-col cols="2"></v-col>
+                <v-col cols = "1"></v-col>
                 <v-col>
-                    <div id="text1"></div>
-                    <br>
-                        <div id="text2" class="moji"></div>
-                    <br>
-                    <div id="text3"></div>
-<!--                    </div>-->
+                    <v-row><span class = "title font-weight-bold">あなたが書いた漢字は、</span></v-row>
+                    <v-row><v-col></v-col></v-row>
+                    <v-row>
+                        <v-col>
+                            <div class="display-4">木</div>
+                            <!-- <div class="display-4">{{}}</div> -->
+                        </v-col>
+                        <v-col><div class = "headline">訓読み : {{}}</div><div class = "headline ">音読み : {{}}</div><div class = "headline">画数　 : {{}}</div></v-col>
+                        <!-- <v-col cols="2"></v-col> -->
+                        <!-- <div class="display-4">{{}}</div> -->
+                    </v-row>
+                    <v-col></v-col>
+                    <v-row>
+                        <v-col cols ="1"></v-col>
+                    <!-- <span v-for="n in 5">{{ kanji[n-1] }} </span> -->
+                    <span v-for="n in 5"> <v-btn  min-height="100px" min-width ="100px" tile outlined color="burakku"><span class = "display-3 font-weight-black">木</span></v-btn> </span>
+                    </v-row>
                 </v-col>
-
+                <v-col cols="2"></v-col>
             </v-row>
-            <!--            <v-col cols="3"></v-col>-->
+
         </v-row>
+            <!--            <v-col cols="3"></v-col>-->
     </v-container>
 </template>
 
