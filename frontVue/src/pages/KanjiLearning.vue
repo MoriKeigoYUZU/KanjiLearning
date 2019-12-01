@@ -127,18 +127,18 @@ import MyCanvas from "../components/Canbas";
                     let p = data[i] == 0 && data[i + 1] == 0 && data[i + 2] == 0 ? 0 : 1;
                     tmp.push(p);
                 }
-                let array = [];
+                let object = [];
                 let formated = [];
                 for (var i = 0; i < tmp.length; i++) {
                     if (i != 0 && i % this.canvas.width == 0) {
-                        formated.push(array);
-                        array = [];
+                        formated.push(object);
+                        object = [];
                     }
-                    array.push(tmp[i]);
+                    object.push(tmp[i]);
                 }
-                formated.push(array);
-                console.log(array);
-                this.image_data = array;
+                formated.push(object);
+                console.log(object);
+                this.image_data = object;
 
                 this.predict();
             },

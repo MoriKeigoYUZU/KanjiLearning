@@ -42,6 +42,7 @@
             return {
                 tmp: "",
                 msg: "",
+                object: "",
             };
         },
 
@@ -89,31 +90,51 @@
 
                 // console.log(nowContextData);
 
-                // let imageData = nowContextData.getImageData(0, 0, 64, 64);
                 let imageData = nowContextData.getImageData(0, 0, 320, 320);
+                // let imageData = nowContextData.getImageData(0, 0, 320, 320);
                 // console.log(imageData.data)
 
 
                 let data = imageData.data;
                 let tmp = [];
                 for (var i = 0; i < data.length; i += 4) {
-                    let p = (data[i] == 0 && data[i + 1] == 0 && data[i + 2] == 0) ? 1 : 0;
+                    let p = (data[i] == 0 && data[i + 1] == 0 && data[i + 2] == 0) ? 255 : 0;
                     tmp.push(p);
                 }
-                let array = [];
-                let formated = []
+                let object = [];
+                let formated = [];
                 for (var i = 0; i < tmp.length; i++) {
                     // if (i != 0 && i % 64 == 0) {
                     if (i != 0 && i % 320 == 0) {
-                        formated.push(array);
-                        array = [];
+                        // formated.push(object);
+                        formated.push(object);
+                        object = [];
                     }
-                    array.push(tmp[i]);
+                    object.push(tmp[i]);
                 }
-                formated.push(array);
+                formated.push(object);
 
                 //これを送る
                 console.log(formated);
+
+                // var completionTmp = [];
+                // var completion = [];
+                // for (var i = 0; i < 64; i++) {
+                //     for(var j = 0 ; j < 64; j++){
+                //         completionpTmp.push(1);
+                //     }
+                //     completion.push(completionpTmp);
+                //     completionpTmp = [];
+                // }
+
+                // console.log(completion);
+
+                var tbl = new Array(64);
+                for(let y = 0; y < 64; y++) {
+                    tbl[y] = new Array(64).fill(0);
+                }
+                tbl[1][1] = 1;
+                console.log(tbl);
 
 
                 const POST_URL = "hoge"; // この変数に送り先のURLを代入
@@ -181,6 +202,7 @@
                     context.fillRect(0, 0, canvas.width, canvas.height);
                 }
 
+
                 /*
                 リスナーなどの設定
                 canvasの動き方など、アプリケーションとしての機能は全てこの中に
@@ -240,10 +262,12 @@
                         let canvas = document.createElement('canvas');
                         canvas.width = 320;
                         canvas.height = 320;
+                        // canvas.width = 64;
+                        // canvas.height = 64;
                         let context = canvas.getContext('2d');
                         // 320
                         // context.drawImage(oldCanvas, 0, 0, 64, 64);
-                        context.drawImage(oldCanvas, 0, 0, 320, 320);
+                        context.drawImage(oldCanvas, 0, 0, 320,320);
 
                         let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
 
@@ -255,16 +279,16 @@
                             let p = (data[i] == 0 && data[i + 1] == 0 && data[i + 2] == 0) ? 0 : 1;
                             tmp.push(p);
                         }
-                        let array = [];
+                        let object = [];
                         let formated = []
                         for (var i = 0; i < tmp.length; i++) {
                             if (i != 0 && i % canvas.width == 0) {
-                                formated.push(array);
-                                array = [];
+                                formated.push(object);
+                                object = [];
                             }
-                            array.push(tmp[i]);
+                            object.push(tmp[i]);
                         }
-                        formated.push(array);
+                        formated.push(object);
                         $.ajax({
                             url: './setjson.php',
                             type: 'POST',

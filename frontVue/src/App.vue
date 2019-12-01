@@ -51,14 +51,14 @@
 <!--      &lt;!&ndash; ナビゲーションに router-link コンポーネントを使う &ndash;&gt;-->
 <!--      &lt;!&ndash; リンク先を `to` プロパティに指定します &ndash;&gt;-->
 <!--      &lt;!&ndash; デフォルトで `<router-link>` は `<a>` タグとして描画されます &ndash;&gt;-->
-<!--        <router-link to="/">haro</router-link>/-->
-<!--        <router-link to="/Top">Top</router-link>/-->
-<!--        <router-link to="/KanjiLearning"> KANJI</router-link>/-->
+       <router-link to="/">haro</router-link>/
+       <router-link to="/Top">Top</router-link>/
+       <router-link to="/KanjiLearning"> KANJI</router-link>/
 <!--&lt;!&ndash;        <router-link to="/Signin"> Signin</router-link>/&ndash;&gt;-->
 <!--&lt;!&ndash;        <router-link to="/Signup"> Signup</router-link>/&ndash;&gt;-->
-<!--        <router-link to="/Question"> Question</router-link>/-->
-<!--        <router-link to="/QuestionTop"> QuestionTop</router-link>/-->
-<!--        <router-link to="/Result">Result</router-link>-->
+       <router-link to="/Question"> Question</router-link>/
+       <router-link to="/QuestionTop"> QuestionTop</router-link>/
+       <router-link to="/Result">Result</router-link>
 
       </p>
 
