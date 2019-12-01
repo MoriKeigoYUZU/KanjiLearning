@@ -113,7 +113,7 @@
                 const POST_URL = process.env.VUE_APP_URL_BASE + "predict.py";
                 let params = new URLSearchParams();
                 for(let i = 0; i< 10; i++){
-                    params.append("q"+ i+1, qInput[i]);
+                    params.append("q"+ i+1, JSON.stringify(qInput[i]));
                 }
                 //ここにURL指定。
 
