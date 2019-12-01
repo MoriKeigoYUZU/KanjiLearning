@@ -73,6 +73,8 @@
                 msg: "",
                 question: "",
                 answer: "",
+                qInput: ["","","","","","","","","",""],
+                qOutput: ["","","","","","","","","",""],
             };
         },
 
@@ -89,19 +91,37 @@
             // URLにパラメータとしてgradeが必要
             getQuestionAndAnswer() {
             // const POST_URL = "http://kanjilearnig.tk/cgi-bin/question.py";
-            const POST_URL = process.env.VUE_APP_URL_BASE + "question.py";
-            // process.env.VUE_APP_URL_
-            let params = new URLSearchParams();
-            params.append("grade", this.$route.query.grade);
-            //ここにURL指定。
+                const POST_URL = process.env.VUE_APP_URL_BASE + "question.py";
+                // process.env.VUE_APP_URL_
+                let params = new URLSearchParams();
+                params.append("grade", this.$route.query.grade);
+                //ここにURL指定。
 
-            axios.post(POST_URL, params)
-                .then(response => {
-                    this.question = response.data.question;
-                    this.answer = response.data.answer;
-                }).catch(err => {
-                    console.log('err:', err);
-                });
+                axios.post(POST_URL, params)
+                    .then(response => {
+                        this.question = response.data.question;
+                        this.answer = response.data.answer;
+                    }).catch(err => {
+                        console.log('err:', err);
+                    });
+            },
+            
+            predict10Question(){
+                const POST_URL = process.env.VUE_APP_URL_BASE + "predict.py";
+                let params = new URLSearchParams();
+                for(let i = 0; i< 10; i++){
+                    params.append("q"+ i+1, qInput[i]);
+                }
+                //ここにURL指定。
+
+                axios.post(POST_URL, params)
+                    .then(response => {
+                        for(let i = 0; i< 10; i++){
+                            qOutput[i] = response.data["q"+i];
+                        }
+                    }).catch(err => {
+                        console.log('err:', err);
+                    });
             },
         },
     }
