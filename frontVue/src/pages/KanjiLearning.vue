@@ -16,7 +16,9 @@
             </v-col>
             <v-col cols="1"></v-col>
         </v-row>
-        <v-row><v-col></v-col></v-row>
+        <v-row>
+            <v-col></v-col>
+        </v-row>
         <v-row>
             <MyCanvas></MyCanvas>
         </v-row>
@@ -33,7 +35,7 @@
 </template>
 
 <script>
-import MyCanvas from "../components/Canbas";
+    import MyCanvas from "../components/Canbas";
     import Konva from "konva";
 
     export default {
