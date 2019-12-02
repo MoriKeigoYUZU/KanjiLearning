@@ -58,7 +58,7 @@
             >
             <v-btn
               v-else
-              @click="getResult"
+              @click="predict10Question"
               depressed
               color="#FF8100"
               valign="bottom"
@@ -112,36 +112,36 @@ export default {
   },
 
   methods: {
-    async getResult() {
-      const POST_URL = process.env.VUE_APP_URL_BASE + "predict.py";
-      console.log(POST_URL);
-      let params = new URLSearchParams();
-      params = JSON.stringify({
-        q1: JSON.stringify([this.$store.state.userAnswer[0]]),
-        q2: JSON.stringify([this.$store.state.userAnswer[1]]),
-        q3: JSON.stringify([this.$store.state.userAnswer[2]]),
-        q4: JSON.stringify([this.$store.state.userAnswer[3]]),
-        q5: JSON.stringify([this.$store.state.userAnswer[4]]),
-        q6: JSON.stringify([this.$store.state.userAnswer[5]]),
-        q7: JSON.stringify([this.$store.state.userAnswer[6]]),
-        q8: JSON.stringify([this.$store.state.userAnswer[7]]),
-        q9: JSON.stringify([this.$store.state.userAnswer[8]]),
-        q10: JSON.stringify([this.$store.state.userAnswer[9]])
-      });
-      console.log(params);
-      //ここにURL指定。
+    // async getResult() {
+    //   const POST_URL = process.env.VUE_APP_URL_BASE + "predict.py";
+    //   console.log(POST_URL);
+    //   let params = new URLSearchParams();
+    //   params = JSON.stringify({
+    //     q1: JSON.stringify([this.$store.state.userAnswer[0]]),
+    //     q2: JSON.stringify([this.$store.state.userAnswer[1]]),
+    //     q3: JSON.stringify([this.$store.state.userAnswer[2]]),
+    //     q4: JSON.stringify([this.$store.state.userAnswer[3]]),
+    //     q5: JSON.stringify([this.$store.state.userAnswer[4]]),
+    //     q6: JSON.stringify([this.$store.state.userAnswer[5]]),
+    //     q7: JSON.stringify([this.$store.state.userAnswer[6]]),
+    //     q8: JSON.stringify([this.$store.state.userAnswer[7]]),
+    //     q9: JSON.stringify([this.$store.state.userAnswer[8]]),
+    //     q10: JSON.stringify([this.$store.state.userAnswer[9]])
+    //   });
+    //   console.log(params);
+    //   //ここにURL指定。
 
-      await axios
-        .post(POST_URL, params)
-        .then(response => {
-          console.log("-----");
-          console.log(response.data);
-          console.log("-----");
-        })
-        .catch(err => {
-          console.log("err:", err);
-        });
-    },
+    //   await axios
+    //     .post(POST_URL, params)
+    //     .then(response => {
+    //       console.log("-----");
+    //       console.log(response.data);
+    //       console.log("-----");
+    //     })
+    //     .catch(err => {
+    //       console.log("err:", err);
+    //     });
+    // },
     pushAnswer() {
       this.$store.commit("pushAnswer");
     },
@@ -165,19 +165,21 @@ export default {
         });
     },
 
-    predict10Question() {
+    async predict10Question() {
       const POST_URL = process.env.VUE_APP_URL_BASE + "predict.py";
       let params = new URLSearchParams();
       for (let i = 0; i < 10; i++) {
-        params.append("q" + i + 1, JSON.stringify(qInput[i]));
+        params.append("q" + (i + 1), JSON.stringify(this.$store.state.userAnswer[i]));
       }
       //ここにURL指定。
 
-      axios
+      await axios
         .post(POST_URL, params)
         .then(response => {
           for (let i = 0; i < 10; i++) {
-            qOutput[i] = response.data["q" + i];
+              console.log(response.data)
+            this.qOutput[i] = response.data["q" + (i+1)];
+            console.log(this.qOutput)
           }
         })
         .catch(err => {
