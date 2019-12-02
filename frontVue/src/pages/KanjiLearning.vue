@@ -4,7 +4,7 @@
         <v-row>
             <v-col cols="1"></v-col>
             <v-col>
-                <h1>漢字ラーニング(漢字手書き検索)</h1>
+                <h1>漢字検索(漢字手書き検索)</h1>
             </v-col>
             <v-col cols="1"></v-col>
         </v-row>

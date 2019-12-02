@@ -225,14 +225,9 @@
                     </v-card-text>
 
                     <v-card-actions>
-                        <v-btn
-                                color="orange"
-                                text
-                                href="/Question?grade=3"
-                        >
-                            レッスン開始
-                        </v-btn>
-
+                            <v-btn color="orange" outlined block="" class="font-weight-black title" href="/Question?grade=3">
+                                Let's try!!
+                            </v-btn>
                     </v-card-actions>
                 </v-card>
             </v-card>
@@ -256,12 +251,8 @@
                     </v-card-text>
 
                     <v-card-actions>
-                        <v-btn
-                                color="orange"
-                                text
-                                href="/Question?grade=2．5"
-                        >
-                            レッスン開始
+                        <v-btn color="orange" outlined block="" class="font-weight-black title" href="/Question?grade=2．5">
+                                Let's try!!
                         </v-btn>
                     </v-card-actions>
                 </v-card>
@@ -288,12 +279,8 @@
                     </v-card-text>
 
                     <v-card-actions>
-                        <v-btn
-                                color="orange"
-                                text
-                                href="/Question?grade=2"
-                        >
-                            レッスン開始
+                        <v-btn color="orange" outlined block="" class="font-weight-black title" href="/Question?grade=2">
+                                Let's try!!
                         </v-btn>
                     </v-card-actions>
                 </v-card>
