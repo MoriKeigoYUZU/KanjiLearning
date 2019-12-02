@@ -59,13 +59,9 @@
                     </v-card-text>
 
                     <v-card-actions>
-                        <v-btn
-                                color="orange"
-                                text
-                                href="/Question?grade=9"
-                        >
-                            レッスン開始
-                        </v-btn>
+                            <v-btn color="orange" outlined block="" class="font-weight-black title" href="/Question?grade=9">
+                                Let's try!!
+                            </v-btn>
 
                     </v-card-actions>
                 </v-card>
@@ -90,15 +86,9 @@
                     </v-card-text>
 
                     <v-card-actions>
-                        <v-btn
-                                color="orange"
-                                text
-                                href="/Question?grade=8"
-                        >
-                            レッスン開始
-                        </v-btn>
-
-
+                            <v-btn color="orange" outlined block="" class="font-weight-black title" href="/Question?grade=8">
+                                Let's try!!
+                            </v-btn>
                     </v-card-actions>
                 </v-card>
             </v-card>
@@ -125,13 +115,9 @@
                     </v-card-text>
 
                     <v-card-actions>
-                        <v-btn
-                                color="orange"
-                                text
-                                href="/Question?grade=7"
-                        >
-                            レッスン開始
-                        </v-btn>
+                            <v-btn color="orange" outlined block="" class="font-weight-black title" href="/Question?grade=7">
+                                Let's try!!
+                            </v-btn>
                     </v-card-actions>
                 </v-card>
             </v-card>
@@ -156,14 +142,9 @@
                     </v-card-text>
 
                     <v-card-actions>
-                        <v-btn
-                                color="orange"
-                                text
-                                href="/Question?grade=6"
-                        >
-                            レッスン開始
-                        </v-btn>
-
+                            <v-btn color="orange" outlined block="" class="font-weight-black title" href="/Question?grade=6">
+                                Let's try!!
+                            </v-btn>
                     </v-card-actions>
                 </v-card>
             </v-card>
@@ -187,13 +168,9 @@
                     </v-card-text>
 
                     <v-card-actions>
-                        <v-btn
-                                color="orange"
-                                text
-                                href="/Question?grade=5"
-                        >
-                            レッスン開始
-                        </v-btn>
+                            <v-btn color="orange" outlined block="" class="font-weight-black title" href="/Question?grade=5">
+                                Let's try!!
+                            </v-btn>
 
 
                     </v-card-actions>
@@ -221,13 +198,9 @@
                     </v-card-text>
 
                     <v-card-actions>
-                        <v-btn
-                                color="orange"
-                                text
-                                href="/Question?grade=4"
-                        >
-                            レッスン開始
-                        </v-btn>
+                            <v-btn color="orange" outlined block="" class="font-weight-black title" href="/Question?grade=4">
+                                Let's try!!
+                            </v-btn>
                     </v-card-actions>
                 </v-card>
             </v-card>

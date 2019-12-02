@@ -15,11 +15,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="item in desserts" :key="item.number">
-                    <td>{{ item.number }}</td>
-                    <td>{{ item.question }}</td>
-                    <td>{{ item.answer }}</td>
-                    <td>{{ item.correction }}</td>
+                <tr v-for="(index, item) in $store.state.userAnswer" :key="index">
+                    <td>{{ index }}</td>
+                    <td>{{ item}}</td>
                 </tr>
                 </tbody>
             </template>
