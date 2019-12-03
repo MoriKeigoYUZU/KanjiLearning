@@ -5,20 +5,21 @@
       <v-col>
         <canvas width="320" height="320" class="canvas" id="canvas"></canvas>
 
+
         <v-col>
           <v-btn
-            class="ma-2"
+            class="ma-2 subtitle-2 font-weight-black"
             depressed
             small
             color="primary"
             @click="save()"
             large
             value="Click"
-            >保存</v-btn
+            >　　保存　　</v-btn
           >
           <!-- <v-btn class="ma-2" depressed small color="error" @click="MyCanvas()" large href="/KanjiLearning">リセット</v-btn> -->
-          <v-btn class="ma-2" depressed small color="error" id="reset" large
-            >リセット</v-btn
+          <v-btn class="ma-2 font-weight-black" depressed small color="error" id="reset" large
+            >　リセット　</v-btn
           >
         </v-col>
       </v-col>
@@ -40,7 +41,7 @@
               </div></v-col
             >
           </v-row>
-          <v-col></v-col>
+          <v-col><div class="title font-weight-bold">{{ moji[4] }}</div></v-col>
           <v-row>
             <v-col cols="1"></v-col>
             <div v-if="kanji">
@@ -58,7 +59,6 @@
                 >
               </span>
             </div>
-            <!-- <p id = "choice">dvda</p> -->
           </v-row>
         </v-col>
         <v-col cols="2"></v-col>
@@ -96,6 +96,7 @@ export default {
     choiceKanji(num) {
       console.log(num);
       this.number = num - 1;
+
     },
 
     predictKanji() {
@@ -111,10 +112,13 @@ export default {
           this.onyomi = response.data.onyomi;
           this.kunyomi = response.data.kunyomi;
           this.kakusu = response.data.kakusu;
+          this.moji = ["あなたの書いた字は、", "訓読み : ", "音読み : ", "画数　 : " , "あなたの書いた漢字はこちらですか？"];
+
         })
         .catch(err => {
           console.log("err:", err);
         });
+
     },
 
     clearCanvas: function() {
@@ -122,7 +126,7 @@ export default {
     },
 
     save: function() {
-      this.moji = ["あなたの書いた字は、", "訓読み :", "音読み :", "画数　 :"];
+
 
       const nowContext = document.getElementById("canvas");
       // console.log(nowContext)

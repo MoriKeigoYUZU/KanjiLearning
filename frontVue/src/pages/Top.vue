@@ -26,16 +26,15 @@
                         <v-list-item-avatar color="green"></v-list-item-avatar>
                         <v-list-item-content>
 <!--                            <v-list-item-title class="headline">漢字ラーニング</v-list-item-title>-->
-                            <h2>漢字ラーニング</h2>
+                            <h2>漢字検索</h2>
 <!--                            <v-list-item-subtitle>by Kurt Wagner</v-list-item-subtitle>-->
                         </v-list-item-content>
                     </v-list-item>
-                        <p>画像いれる予定</p>
-
-<!--                    <v-img-->
-<!--                            src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg"-->
-<!--                            height="194"-->
-<!--                    ></v-img>-->
+                        <!--<img src="../assets/kanjihantei.jpg" height="161" width="408"/>-->
+                        <!--<v-img-->
+                            <!--src="../assets/kanjihantei.jpg"-->
+                            <!--height="100"-->
+                    <!--&gt;</v-img>-->
 
                     <v-card-text>
                         手書きで文字を入力し、漢字を特定します。
@@ -64,7 +63,7 @@
                                 <!--                            <v-list-item-subtitle>by Kurt Wagner</v-list-item-subtitle>-->
                             </v-list-item-content>
                         </v-list-item>
-                        <p>画像いれる予定</p>
+                        <!--<p>画像いれる予定</p>-->
 
                         <!--                    <v-img-->
                         <!--                            src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg"-->

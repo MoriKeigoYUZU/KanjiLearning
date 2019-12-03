@@ -23,7 +23,7 @@
             <MyCanvas></MyCanvas>
         </v-row>
         <v-row>
-            <v-col cols="1"></v-col>
+            <v-col cols="10"></v-col>
             <v-btn outline large color="purple" dark to="Top">
                 トップページに戻る
             </v-btn>

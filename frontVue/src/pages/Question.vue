@@ -8,8 +8,8 @@
             <v-col cols="1"></v-col>
             <v-col>
                 <h1>問題を解け</h1>
-                <p>問題：{{ this.displayQuestion }}</p>
-                <p>回答：{{ this.$store.state.answer }}</p>
+                <!--<p>問題：{{ this.displayQuestion }}</p>-->
+                <!--<p>回答：{{ this.$store.state.answer }}</p>-->
             </v-col>
             <v-col cols="1"></v-col>
         </v-row>
@@ -22,7 +22,7 @@
             <v-col cols="1"></v-col>
             <v-col>
                 <div>
-                    <h2>1.{{ this.displayQuestion }}</h2>
+                    <h2>問題.{{ this.displayQuestion }}</h2>
                 </div>
             </v-col>
             <v-col></v-col>
@@ -31,33 +31,58 @@
         <br/>
 
         <v-row>
+            <v-col cols="1"></v-col>
             <v-col>
                 <MyCanvas ref="mycanvas"></MyCanvas>
             </v-col>
             <v-col v-if="this.currentAnswer.length == 2">
                 <MyCanvas></MyCanvas>
-            </v-col>
-            <v-col>
-                <div style="margin-bottom:166px"></div>
-                <div class="my-2">
-                    <!--                    <v-btn depressed color="primary" valign="bottom">取り消し</v-btn>-->
-                </div>
-            </v-col>
 
-            <v-col>
-                <v-row>
-                    <v-col>
-                        <v-btn
-                                color="#FF8100"
-                                @click="predictKanji"
-                        >
-                            保存
-                        </v-btn>
-                    </v-col>
-                    <v-col>
-                        <v-btn depressed color="#FF8100" valign="bottom">前の問題</v-btn>
-                    </v-col>
-                    <v-col>
+            </v-col>
+            <v-col cols = "7">
+                <br>
+            <v-btn
+                    color="#FF8100"
+                    @click="predictKanji"
+            >
+                保存
+            </v-btn>
+
+
+
+                <v-col >
+                    <v-row
+                    ><span class="title font-weight-bold">{{ moji[0] }}</span></v-row
+                    >
+                    <v-row>
+                        <v-col></v-col>
+                    </v-row>
+                    <v-row>
+                        <div class="display-4">{{ kanji[number] }}</div>
+                        <v-col cols="1"></v-col>
+                    </v-row>
+                    <v-col><div class="title font-weight-bold">{{ moji[2] }}</div></v-col>
+                    <v-row>
+                        <!--<v-col cols="1"></v-col>-->
+
+                        <div v-if="kanji">
+              <span v-for="n in 5">
+                <v-btn
+                        min-height="100px"
+                        min-width="100px"
+                        tile
+                        outlined
+                        color="burakku"
+                        @click="choiceKanji(n)"
+                ><span class="display-3 font-weight-black">{{
+                    kanji[n - 1]
+                  }}</span></v-btn
+                >
+              </span>
+                        </div>
+                        <span v-if="kanji">
+                        <v-row>
+                            <v-col></v-col>
                         <v-btn
                                 v-if="$store.state.userAnswer.length < 3"
                                 @click="pushAnswer"
@@ -75,55 +100,51 @@
                                 valign="bottom"
                                 to="Result"
                         >結果を見る
-                        </v-btn
-                        >
-                    </v-col>
-                </v-row>
+                        </v-btn>
+                            <v-col></v-col>
+
+                        </v-row>
+                        </span>
+                    </v-row>
+                </v-col>
+
+            </v-col>
+
+                            </v-row>
+                        </v-col>
+                            <!--</v-row>-->
+                        <!--</v-col>-->
+                        <!--<v-btn depressed color="#FF8100" valign="bottom">前の問題</v-btn>-->
+                    <!--</v-col>-->
+                    <v-col>
+
+                        <!--<v-btn-->
+                                <!--v-if="$store.state.userAnswer.length < 3"-->
+                                <!--@click="pushAnswer"-->
+                                <!--depressed-->
+                                <!--color="#FF8100"-->
+                                <!--valign="bottom"-->
+                        <!--&gt;次の問題-->
+                        <!--</v-btn-->
+                        <!--&gt;-->
+                        <!--<v-btn-->
+                                <!--@click="createResult"-->
+                                <!--v-else-->
+                                <!--depressed-->
+                                <!--color="#FF8100"-->
+                                <!--valign="bottom"-->
+                                <!--to="Result"-->
+                        <!--&gt;結果を見る-->
+                        <!--</v-btn>-->
+
             </v-col>
         </v-row>
         <v-row>
+
+        </v-row>
+        <v-row><v-col></v-col></v-row>
+        <v-row>
             <v-col cols="1"></v-col>
-            <v-col>
-                <v-row
-                ><span class="title font-weight-bold">{{ moji[0] }}</span></v-row
-                >
-                <v-row>
-                    <v-col></v-col>
-                </v-row>
-                <v-row>
-                    <div class="display-4">{{ kanji[number] }}</div>
-                    <v-col cols="1"></v-col>
-                    <v-col
-                    >
-                        <div class="headline">{{ moji[1] }}{{ kunyomi[number] }}</div>
-                        <div class="headline ">{{ moji[2] }}{{ onyomi[number] }}</div>
-                        <div class="headline">
-                            {{ moji[3] }}{{ kakusu[number] }}
-                        </div>
-                    </v-col
-                    >
-                </v-row>
-                <v-col></v-col>
-                <v-row>
-                    <v-col cols="1"></v-col>
-                    <div v-if="kanji">
-              <span v-for="n in 5">
-                <v-btn
-                        min-height="100px"
-                        min-width="100px"
-                        tile
-                        outlined
-                        color="burakku"
-                        @click="choiceKanji(n)"
-                ><span class="display-3 font-weight-black">{{
-                    kanji[n - 1]
-                  }}</span></v-btn
-                >
-              </span>
-                    </div>
-                    <!-- <p id = "choice">dvda</p> -->
-                </v-row>
-            </v-col>
             <v-col cols="2"></v-col>
         </v-row>
     </v-container>
@@ -152,7 +173,7 @@
         kunyomi: "",
         kakusu: "",
         number: "0",
-        moji: ["あなたの書いた字は、", "訓読み :", "音読み :", "画数　 :"],
+        moji: "",
       };
     },
 
@@ -190,6 +211,7 @@
             this.onyomi = response.data.onyomi;
             this.kunyomi = response.data.kunyomi;
             this.kakusu = response.data.kakusu;
+            this.moji = ["あなたの書いた字はこちらですか、", "選んでください。 : ", "選んでください。", "画数　 : " , "あなたの書いた漢字はこちらですか？"];
           })
           .catch(err => {
             console.log("err:", err);
