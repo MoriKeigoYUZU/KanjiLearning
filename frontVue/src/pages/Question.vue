@@ -112,31 +112,7 @@
 
                             </v-row>
                         </v-col>
-                            <!--</v-row>-->
-                        <!--</v-col>-->
-                        <!--<v-btn depressed color="#FF8100" valign="bottom">前の問題</v-btn>-->
-                    <!--</v-col>-->
                     <v-col>
-
-                        <!--<v-btn-->
-                                <!--v-if="$store.state.userAnswer.length < 3"-->
-                                <!--@click="pushAnswer"-->
-                                <!--depressed-->
-                                <!--color="#FF8100"-->
-                                <!--valign="bottom"-->
-                        <!--&gt;次の問題-->
-                        <!--</v-btn-->
-                        <!--&gt;-->
-                        <!--<v-btn-->
-                                <!--@click="createResult"-->
-                                <!--v-else-->
-                                <!--depressed-->
-                                <!--color="#FF8100"-->
-                                <!--valign="bottom"-->
-                                <!--to="Result"-->
-                        <!--&gt;結果を見る-->
-                        <!--</v-btn>-->
-
             </v-col>
         </v-row>
         <v-row>
