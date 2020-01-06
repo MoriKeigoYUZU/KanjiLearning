@@ -74,39 +74,44 @@
                         <div v-if="kanji">
                             <span v-for="n in 5">
                                 <v-btn
+                                        v-if="$store.state.userAnswer.length < 2"
                                         min-height="100px"
                                         min-width="100px"
                                         tile
                                         outlined
                                         color="burakku"
-                                        @click="choiceKanji(n)"
+                                        @click="choiceKanji(n); pushAnswer"
+
 
                                 ><span class="display-3 font-weight-black">{{
                                     kanji[n - 1]
                                     }}</span></v-btn>
                             </span>
-                        </div>
-                        <span v-if="kanji">
-                        <v-row>
-                            <v-col></v-col>
-                        <v-btn
-                                v-if="$store.state.userAnswer.length < 6"
-                                @click="pushAnswer"
-                                depressed
-                                color="#FF8100"
-                                valign="bottom"
-                        >次の問題
-                        </v-btn
-                        >
-                        <v-btn
+
+
+                            <!--<v-btn-->
+                                    <!--v-if="$store.state.userAnswer.length < 2"-->
+                                    <!--@click="pushAnswer"-->
+                                    <!--depressed-->
+                                    <!--color="#FF8100"-->
+                                    <!--valign="bottom"-->
+                            <!--&gt;次の問題-->
+                            <!--</v-btn-->
+                            <v-btn
                                 @click="createResult"
-                                v-else
+                                v-if="$store.state.userAnswer.length == 2"
                                 depressed
                                 color="#FF8100"
                                 valign="bottom"
                                 to="Result"
                         >結果を見る
                         </v-btn>
+
+
+                        </div>
+                        <span v-if="kanji">
+                        <v-row>
+
                             <v-col></v-col>
 
                         </v-row>
