@@ -8,15 +8,11 @@
             <v-col cols="1"></v-col>
             <v-col>
                 <h1>問題を解け</h1>
-                <!--<p>問題：{{ this.displayQuestion }}</p>-->
-                <!--<p>回答：{{ this.$store.state.answer }}</p>-->
             </v-col>
             <v-col cols="1"></v-col>
         </v-row>
 
-        <v-row>
-            <v-col></v-col>
-        </v-row>
+        <v-row><v-col></v-col></v-row>
 
         <v-row>
             <v-col cols="1"></v-col>
@@ -28,7 +24,7 @@
             <v-col></v-col>
         </v-row>
 
-        <br/>
+        <v-row><v-col></v-col></v-row>
 
         <v-row>
             <v-col cols="1"></v-col>
@@ -39,18 +35,17 @@
                 <MyCanvas></MyCanvas>
 
             </v-col>
-            <v-col cols = "7">
+            <v-col cols="7">
                 <br>
-            <v-btn
-                    color="#FF8100"
-                    @click="predictKanji"
-            >
-                保存
-            </v-btn>
+                <v-btn
+                        color="#FF8100"
+                        @click="predictKanji"
+                >
+                    保存
+                </v-btn>
 
 
-
-                <v-col >
+                <v-col>
                     <v-row
                     ><span class="title font-weight-bold">{{ moji[0] }}</span></v-row
                     >
@@ -61,7 +56,9 @@
                         <div class="display-4">{{ kanji[number] }}</div>
                         <v-col cols="1"></v-col>
                     </v-row>
-                    <v-col><div class="title font-weight-bold">{{ moji[2] }}</div></v-col>
+                    <v-col>
+                        <div class="title font-weight-bold">{{ moji[2] }}</div>
+                    </v-col>
                     <v-row>
                         <!--<v-col cols="1"></v-col>-->
 
@@ -110,15 +107,17 @@
 
             </v-col>
 
-                            </v-row>
-                        </v-col>
-                    <v-col>
-            </v-col>
+        </v-row>
+        </v-col>
+        <v-col>
+        </v-col>
         </v-row>
         <v-row>
 
         </v-row>
-        <v-row><v-col></v-col></v-row>
+        <v-row>
+            <v-col></v-col>
+        </v-row>
         <v-row>
             <v-col cols="1"></v-col>
             <v-col cols="2"></v-col>
@@ -187,12 +186,14 @@
             this.onyomi = response.data.onyomi;
             this.kunyomi = response.data.kunyomi;
             this.kakusu = response.data.kakusu;
-            this.moji = ["あなたの書いた字はこちらですか、", "選んでください。 : ", "選んでください。", "画数　 : " , "あなたの書いた漢字はこちらですか？"];
+            this.moji = ["あなたの書いた字はこちらですか、", "選んでください。 : ", "選んでください。", "画数　 : ", "あなたの書いた漢字はこちらですか？"];
           })
           .catch(err => {
             console.log("err:", err);
           });
       },
+
+
       pushAnswer() {
         this.$store.commit("pushAnswer");
 

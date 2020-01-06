@@ -13,7 +13,7 @@ import Signup from './pages/Signup';
 import Question from './pages/Question';
 import QuestionTop from './pages/QuestionTop';
 import Result from './pages/Result';
-import Top from './pages/Top'
+import Top from './pages/Top';
 
 
 Vue.use(Router);
