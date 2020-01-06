@@ -39,11 +39,11 @@
                         トップページに戻る
                     </v-btn>
                     <span>&nbsp;</span>
-                    <v-btn depressed large color="#527AFF">やり直す</v-btn>
-                    <span>&nbsp;</span>
-                    <router-link to="/QuestionTop">
-                        <v-btn depressed large color="#FF7B4E">終了</v-btn>
-                    </router-link>
+                    <v-btn depressed large color="#527AFF" to="QuestionTop">やり直す</v-btn>
+                    <!--<span>&nbsp;</span>-->
+                    <!--<router-link to="/QuestionTop">-->
+                        <!--<v-btn depressed large color="#FF7B4E">終了</v-btn>-->
+                    <!--</router-link>-->
 
                 </div>
             </v-col>

@@ -1,9 +1,13 @@
 <template>
     <v-container class="grey lighten-5">
-        <!--        {{msg}}-->
         <v-row>
             <v-col>
                 <canvas width="320" height="320" class="canvas" id="canvas"></canvas>
+
+                <v-btn class="ma-2 font-weight-black" depressed small color="error" id="reset" large
+                >　リセット　
+                </v-btn
+                >
             </v-col>
             <v-col>
                 <v-row>

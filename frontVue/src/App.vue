@@ -18,7 +18,7 @@
                             <v-list-item-title>Topページ</v-list-item-title>
                         </v-list-item>
                         <v-list-item href="KanjiLearning">
-                            <v-list-item-title>漢字練習</v-list-item-title>
+                            <v-list-item-title>漢字検索</v-list-item-title>
                         </v-list-item>
                         <v-list-item to="QuestionTop">
                             <v-list-item-title>漢検練習</v-list-item-title>

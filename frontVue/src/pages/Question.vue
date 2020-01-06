@@ -12,7 +12,9 @@
             <v-col cols="1"></v-col>
         </v-row>
 
-        <v-row><v-col></v-col></v-row>
+        <v-row>
+            <v-col></v-col>
+        </v-row>
 
         <v-row>
             <v-col cols="1"></v-col>
@@ -24,7 +26,9 @@
             <v-col></v-col>
         </v-row>
 
-        <v-row><v-col></v-col></v-row>
+        <v-row>
+            <v-col></v-col>
+        </v-row>
 
         <v-row>
             <v-col cols="1"></v-col>
@@ -33,15 +37,20 @@
             </v-col>
             <v-col v-if="this.currentAnswer.length == 2">
                 <MyCanvas></MyCanvas>
-
             </v-col>
+
             <v-col cols="7">
-                <br>
+
                 <v-btn
-                        color="#FF8100"
+
+                        color="warning"
                         @click="predictKanji"
+                        class="ma-2 font-weight-black"
+                        depressed
+                        small
+                        large
                 >
-                    保存
+                    回答する
                 </v-btn>
 
 
@@ -63,19 +72,18 @@
                         <!--<v-col cols="1"></v-col>-->
 
                         <div v-if="kanji">
-              <span v-for="n in 5">
-                <v-btn
-                        min-height="100px"
-                        min-width="100px"
-                        tile
-                        outlined
-                        color="burakku"
-                        @click="choiceKanji(n)"
-                ><span class="display-3 font-weight-black">{{
-                    kanji[n - 1]
-                  }}</span></v-btn
-                >
-              </span>
+                            <span v-for="n in 5">
+                                <v-btn
+                                        min-height="100px"
+                                        min-width="100px"
+                                        tile
+                                        outlined
+                                        color="burakku"
+                                        @click="choiceKanji(n)"
+                                ><span class="display-3 font-weight-black">{{
+                                    kanji[n - 1]
+                                    }}</span></v-btn>
+                            </span>
                         </div>
                         <span v-if="kanji">
                         <v-row>

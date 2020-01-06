@@ -36,7 +36,7 @@
 
 <script>
     import MyCanvas from "../components/Canbas";
-    import Konva from "konva";
+    // import Konva from "konva";
 
     export default {
         name: "KanjiLearning",
