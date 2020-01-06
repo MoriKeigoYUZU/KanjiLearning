@@ -255,13 +255,19 @@
             false
           );
 
+          var reset = document.getElementById("reset");
+
           // ダブルクリックした時
-          canvas.addEventListener("dblclick", () => {
-            canvas.width = canvas.width;
-            fillWhite(canvas);
-            drawDottedLine(canvas);
-            initPencil(canvas);
-          });
+          reset.addEventListener(
+            "click",
+            () => {
+              canvas.width = canvas.width;
+              fillWhite(canvas);
+              drawDottedLine(canvas);
+              initPencil(canvas);
+            },
+            false
+          );
         };
 
         // 鉛筆の太さや色などの初期化を行うメソッド

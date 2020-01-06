@@ -27,18 +27,18 @@
 </template>
 
 <script>
-    export default {
-        name: "SinginPage",
+  export default {
+    name: "SinginPage",
 
-        methods: {
+    methods: {
 
-            data: () => ({
-                absolute: true,
-                overlay: false,
-            }),
-        },
+      data: () => ({
+        absolute: true,
+        overlay: false,
+      }),
+    },
 
-    }
+  }
 </script>
 
 <style scoped>

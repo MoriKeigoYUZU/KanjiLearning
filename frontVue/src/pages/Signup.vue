@@ -37,21 +37,21 @@
         <!--パスワード入力2回目-->
 
         <!--<v-text-field-->
-                <!--prepend-icon=""-->
-                <!--label="パスワード2"-->
-                <!--type="password2"-->
-                <!--v-model="passwordConfirm"-->
-                <!--:rules="passwordConfirmRules"-->
-                <!--hint="6文字以上で入力してください。"-->
-                <!--required-->
+        <!--prepend-icon=""-->
+        <!--label="パスワード2"-->
+        <!--type="password2"-->
+        <!--v-model="passwordConfirm"-->
+        <!--:rules="passwordConfirmRules"-->
+        <!--hint="6文字以上で入力してください。"-->
+        <!--required-->
         <!--&gt;</v-text-field>-->
 
 
         <!--<v-checkbox-->
-                <!--v-model="checkbox"-->
-                <!--:rules="[v => !!v || 'You must agree to continue!']"-->
-                <!--label="Do you agree?"-->
-                <!--required-->
+        <!--v-model="checkbox"-->
+        <!--:rules="[v => !!v || 'You must agree to continue!']"-->
+        <!--label="Do you agree?"-->
+        <!--required-->
         <!--&gt;</v-checkbox>-->
 
         <v-btn
@@ -76,63 +76,57 @@
 </template>
 
 <script>
-    export default {
-        name: "Signup",
+  export default {
+    name: "Signup",
 
-        data: () => ({
-            valid: true,
-
-
-            name: '',
-
-            nameRules: [
-                v => !!v || '10文字以内で入力してください。',
-                v => (v && v.length <= 10) || '10文字を超えています。',
-            ],
-
-            email: '',
-            emailRules: [
-                v => !!v || '有効なメールアドレスを入力してください。',
-                v => /.+@.+\..+/.test(v) || '有効なメールアドレスを入力してください。',
-            ],
+    data: () => ({
+      valid: true,
 
 
-            password: '',
-            passwordRules: [
-                v => !!v || '6文字以上で入力してください',
+      name: '',
 
-                v => (v && v.length >= 6) || '6文字以上で入力してください。',
-            ],
+      nameRules: [
+        v => !!v || '10文字以内で入力してください。',
+        v => (v && v.length <= 10) || '10文字を超えています。',
+      ],
 
-            // passwordConfirm: '',
-            // passwordConfirmRules: [
-            //     v => !!v || '6文字以上で入力してください',
-            //
-            // //
-            //     v => (v === this.passwordRules) || 'Password confirm is equal to password',
-            // ],
-        }),
+      email: '',
+      emailRules: [
+        v => !!v || '有効なメールアドレスを入力してください。',
+        v => /.+@.+\..+/.test(v) || '有効なメールアドレスを入力してください。',
+      ],
 
 
-        methods: {
-            validate () {
-                if (this.$refs.form.validate()) {
-                    this.snackbar = true
-                }
-            },
-            reset () {
-                this.$refs.form.reset()
-            },
+      password: '',
+      passwordRules: [
+        v => !!v || '6文字以上で入力してください',
+
+        v => (v && v.length >= 6) || '6文字以上で入力してください。',
+      ],
+
+      // passwordConfirm: '',
+      // passwordConfirmRules: [
+      //     v => !!v || '6文字以上で入力してください',
+      //
+      // //
+      //     v => (v === this.passwordRules) || 'Password confirm is equal to password',
+      // ],
+    }),
 
 
+    methods: {
+      validate() {
+        if (this.$refs.form.validate()) {
+          this.snackbar = true
+        }
+      },
+      reset() {
+        this.$refs.form.reset()
+      },
 
 
-
-
-
-
-        },
-    }
+    },
+  }
 </script>
 
 <style scoped>

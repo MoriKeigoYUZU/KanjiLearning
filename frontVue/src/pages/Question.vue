@@ -80,6 +80,7 @@
                                         outlined
                                         color="burakku"
                                         @click="choiceKanji(n)"
+
                                 ><span class="display-3 font-weight-black">{{
                                     kanji[n - 1]
                                     }}</span></v-btn>
@@ -89,7 +90,7 @@
                         <v-row>
                             <v-col></v-col>
                         <v-btn
-                                v-if="$store.state.userAnswer.length < 3"
+                                v-if="$store.state.userAnswer.length < 6"
                                 @click="pushAnswer"
                                 depressed
                                 color="#FF8100"

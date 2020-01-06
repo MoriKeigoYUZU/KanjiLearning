@@ -11,22 +11,21 @@
 </template>
 
 <script>
-    export default {
-        name: "Question",
+  export default {
+    name: "Question",
 
-        el: '#Question',
+    el: '#Question',
 
-        data() {
-            return {
-                Question: ['ここに問題を入力' , 'に' , 'さん'],
-            }
-        },
+    data() {
+      return {
+        Question: ['ここに問題を入力', 'に', 'さん'],
+      }
+    },
 
 
-        methods: {
-        }
+    methods: {}
 
-    }
+  }
 </script>
 
 <style scoped>
