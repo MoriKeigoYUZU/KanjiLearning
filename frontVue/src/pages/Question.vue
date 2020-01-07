@@ -104,6 +104,8 @@
                                 color="#FF8100"
                                 valign="bottom"
                                 to="Result"
+                                x-large
+                                dark
                         >結果を見る
                         </v-btn>
 
