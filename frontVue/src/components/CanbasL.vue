@@ -50,10 +50,14 @@
 
     mounted() {
       console.log(this.$el);
-      this.MyCanvas();
+      this.setMyCanvas();
     },
 
     methods: {
+
+      test() {
+        console.log("1")
+      },
 
       // dddd: function (){
       //
@@ -160,7 +164,9 @@
       },
 
       //Canvas部分
-      MyCanvas() {
+      setMyCanvas() {
+
+        console.log("11");
         "use strict";
         // HTMLページを読み込み次第startCanvas()を実行
         window.addEventListener(

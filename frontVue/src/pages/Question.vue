@@ -20,7 +20,7 @@
             <v-col cols="1"></v-col>
             <v-col>
                 <div>
-                    <h2>問題.{{ this.displayQuestion }}</h2>
+                    <h2>{{this.$store.state.userAnswer.length + 1}}.{{ this.displayQuestion }}</h2>
                 </div>
             </v-col>
             <v-col></v-col>
@@ -33,7 +33,7 @@
         <v-row>
             <v-col cols="1"></v-col>
             <v-col>
-                <MyCanvas ref="mycanvas"></MyCanvas>
+                <MyCanvas ref="reset"></MyCanvas>
             </v-col>
             <v-col v-if="this.currentAnswer.length == 2">
                 <MyCanvas></MyCanvas>
@@ -74,13 +74,13 @@
                         <div v-if="kanji">
                             <span v-for="n in 5">
                                 <v-btn
-                                        v-if="$store.state.userAnswer.length < 2"
+                                        v-if="$store.state.userAnswer.length < 3"
                                         min-height="100px"
                                         min-width="100px"
                                         tile
                                         outlined
                                         color="burakku"
-                                        @click="choiceKanji(n); pushAnswer"
+                                        @click="choiceKanji(n); pushAnswer "
 
 
                                 ><span class="display-3 font-weight-black">{{
@@ -90,24 +90,24 @@
 
 
                             <!--<v-btn-->
-                                    <!--v-if="$store.state.userAnswer.length < 2"-->
-                                    <!--@click="pushAnswer"-->
-                                    <!--depressed-->
-                                    <!--color="#FF8100"-->
-                                    <!--valign="bottom"-->
+                            <!--v-if="$store.state.userAnswer.length < 2"-->
+                            <!--@click="pushAnswer"-->
+                            <!--depressed-->
+                            <!--color="#FF8100"-->
+                            <!--valign="bottom"-->
                             <!--&gt;次の問題-->
                             <!--</v-btn-->
                             <v-btn
-                                @click="createResult"
-                                v-if="$store.state.userAnswer.length == 2"
-                                depressed
-                                color="#FF8100"
-                                valign="bottom"
-                                to="Result"
-                                x-large
-                                dark
-                        >結果を見る
-                        </v-btn>
+                                    @click="createResult"
+                                    v-if="$store.state.userAnswer.length == 3"
+                                    depressed
+                                    color="#FF8100"
+                                    valign="bottom"
+                                    to="Result"
+                                    x-large
+                                    dark
+                            >結果を見る
+                            </v-btn>
 
 
                         </div>
@@ -188,6 +188,7 @@
 
     methods: {
       predictKanji() {
+
         this.$store.commit("pushAnswer");
 
         const POST_URL = process.env.VUE_APP_URL_BASE + "kanji_search.py";
@@ -213,15 +214,20 @@
       pushAnswer() {
         this.$store.commit("pushAnswer");
 
-        this.$refs.mycanvas.reset();
+
       },
       choiceKanji(num) {
+        this.$refs.reset.reset();
+
         this.$store.commit('userChoice', this.kanji[num - 1]);
 
 
         this.$store.commit('checkAnswer', {
           userAnswer: this.kanji[num - 1]
         })
+
+        this.kanji="";
+        this.moji="";
       },
       // URLにパラメータとしてgradeが必要
       getQuestionAndAnswer() {

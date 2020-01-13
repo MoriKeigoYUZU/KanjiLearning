@@ -15,7 +15,7 @@
                             @click="save()"
                             large
                             value="Click"
-                    >　　保存　　
+                    >　　検索　　
                     </v-btn
                     >
                     <!-- <v-btn class="ma-2" depressed small color="error" @click="MyCanvas()" large href="/KanjiLearning">リセット</v-btn> -->
