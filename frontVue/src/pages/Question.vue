@@ -165,6 +165,7 @@
         kakusu: "",
         number: "0",
         moji: "",
+        i: "0",
       };
     },
 
@@ -217,7 +218,9 @@
 
       },
       choiceKanji(num) {
-        this.$refs.reset.reset();
+
+
+
 
         this.$store.commit('userChoice', this.kanji[num - 1]);
 
@@ -226,8 +229,13 @@
           userAnswer: this.kanji[num - 1]
         })
 
-        this.kanji="";
-        this.moji="";
+        if (this.i < 2) {
+          this.kanji = "";
+          this.moji = "";
+          this.i++;
+          this.$refs.reset.reset();
+        }
+
       },
       // URLにパラメータとしてgradeが必要
       getQuestionAndAnswer() {

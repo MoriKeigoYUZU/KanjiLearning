@@ -2,7 +2,6 @@
     <v-container class="grey lighten-5">
         <h1>結果</h1>
         <br>
-        <p>なにか書きたいことがあれば<br>ここに</p>
 
         <v-simple-table fixed-header height="380px">
             <template v-slot:default>
