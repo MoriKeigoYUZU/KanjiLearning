@@ -220,8 +220,6 @@
       choiceKanji(num) {
 
 
-
-
         this.$store.commit('userChoice', this.kanji[num - 1]);
 
 
